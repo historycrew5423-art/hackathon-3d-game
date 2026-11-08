@@ -6,11 +6,12 @@
 | --- | --- | --- | --- |
 | ox.glb | 写实牛角色（持耙） | 29 | idle / walk / attack |
 | untitled.glb | 袍服持杖角色 | 24 | idle / walk / attack |
+| wukong.glb | Q版孙悟空（持棍） | 28 | idle / walk / attack |
+| sorceress.glb | 奇幻女术士（骨制法杖） | 28 | idle / walk / attack |
 
 - 单位：米，身高约 1m，+Y 朝上；30fps。
 - 主要骨已命名：spine、chest、head、upperarm.L/R、forearm.L/R、thigh.L/R、shin.L/R，其余为 bone_N。
 - 手持道具与身体是同一网格，未单独做挂点。
-- 孙悟空、女术士处理中，稍后补充。
 
 ```ts
 const gltf = await new GLTFLoader().loadAsync('models/characters/ox.glb');

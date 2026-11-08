@@ -1,0 +1,13 @@
+{
+  "coverage": "当前接续记录，从工具确认时间开始；更早的初步排查未包含",
+  "start": "2026-11-08T10:09:42+00:00",
+  "end": "2026-11-08T10:27:00.614432+00:00",
+  "seconds": 1038.614432,
+  "stages": {
+    "generation": "skipped, existing assets",
+    "rigging": "skipped, existing rigs",
+    "repair": "completed",
+    "browser_verification": "completed, failed mobile test corrected and targeted tests passed",
+    "publishing": "skipped, not requested"
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "time": "2026-11-08T10:24:21.505Z",
+  "scope": "仅复测修复后的触屏大招、控件布局，并补录此前未落盘的帧时。已通过的桌面战斗和资源解码不重复。",
+  "checks": [
+    {
+      "name": "白虎开局可见",
+      "passed": true
+    },
+    {
+      "name": "触屏大招不再被同一次触摸误跳过",
+      "passed": true,
+      "data": {
+        "hidden": false,
+        "t": 1.570228,
+        "muted": false,
+        "frames": 52,
+        "dropped": 0
+      }
+    },
+    {
+      "name": "下一次触摸可以主动跳过并释放72分身",
+      "passed": true
+    },
+    {
+      "name": "触屏梦蝶大招",
+      "passed": true
+    },
+    {
+      "name": "触屏追风大招造成命中",
+      "passed": true
+    },
+    {
+      "name": "控件可点击 390",
+      "passed": true,
+      "data": [
+        {
+          "id": "joy",
+          "ok": true
+        },
+        {
+          "id": "look-joy",
+          "ok": true
+        },
+        {
+          "id": "jump",
+          "ok": true
+        },
+        {
+          "id": "awkward",
+          "ok": true
+        },
+        {
+          "id": "laugh",
+          "ok": true
+        },
+        {
+          "id": "tornado",
+          "ok": true
+        },
+        {
+          "id": "giant-btn",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "name": "控件可点击 844",
+      "passed": true,
+      "data": [
+        {
+          "id": "joy",
+          "ok": true
+        },
+        {
+          "id": "look-joy",
+          "ok": true
+        },
+        {
+          "id": "jump",
+          "ok": true
+        },
+        {
+          "id": "awkward",
+          "ok": true
+        },
+        {
+          "id": "laugh",
+          "ok": true
+        },
+        {
+          "id": "tornado",
+          "ok": true
+        },
+        {
+          "id": "giant-btn",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "name": "手机切回白虎背景",
+      "passed": true
+    },
+    {
+      "name": "鼠标点击大招按钮启动视频",
+      "passed": true
+    },
+    {
+      "name": "鼠标大招按钮正常结算",
+      "passed": true
+    }
+  ],
+  "profiles": [
+    {
+      "device": "触屏仿真390×844 / DPR3",
+      "stage": "journey",
+      "fps": 59.54545453512966,
+      "p95ms": 16.799999999999272,
+      "maxms": 50,
+      "frames": 131,
+      "mainCalls": 29,
+      "mainTriangles": 299929,
+      "background": {
+        "frame": 715,
+        "calls": 64,
+        "triangles": 1762312,
+        "points": 0,
+        "lines": 0
+      }
+    },
+    {
+      "device": "触屏仿真390×844 / DPR3",
+      "stage": "butterfly",
+      "fps": 60.279187814653426,
+      "p95ms": 16.799999999999272,
+      "maxms": 16.80000000000109,
+      "frames": 133,
+      "mainCalls": 249,
+      "mainTriangles": 277461,
+      "background": null
+    },
+    {
+      "device": "触屏仿真390×844 / DPR3",
+      "stage": "runner",
+      "fps": 60.29558435805559,
+      "p95ms": 16.700000000000728,
+      "maxms": 16.799999999999272,
+      "frames": 133,
+      "mainCalls": 286,
+      "mainTriangles": 953197,
+      "background": null
+    },
+    {
+      "device": "桌面1280×720",
+      "stage": "journey",
+      "fps": 59.375424919548564,
+      "p95ms": 16.799999999999727,
+      "maxms": 50,
+      "frames": 131,
+      "mainCalls": 29,
+      "mainTriangles": 420572,
+      "background": {
+        "frame": 725,
+        "calls": 66,
+        "triangles": 2438112,
+        "points": 0,
+        "lines": 0
+      }
+    },
+    {
+      "device": "桌面1280×720",
+      "stage": "butterfly",
+      "fps": 60.194614166100926,
+      "p95ms": 16.700000000000728,
+      "maxms": 16.800000000000182,
+      "frames": 133,
+      "mainCalls": 137,
+      "mainTriangles": 314353,
+      "background": null
+    },
+    {
+      "device": "桌面1280×720",
+      "stage": "runner",
+      "fps": 60.240963855421704,
+      "p95ms": 16.700000000000728,
+      "maxms": 16.800000000000182,
+      "frames": 133,
+      "mainCalls": 239,
+      "mainTriangles": 848343,
+      "background": null
+    }
+  ],
+  "errors": [],
+  "missing": []
+}

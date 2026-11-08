@@ -1,0 +1,153 @@
+{
+  "version": "修复版 2026-11-08",
+  "entry": "hi3d-index.html",
+  "scope": "本机 Chrome/WebGL2；1280×720桌面、390×844及844×390触屏仿真。缓存禁用，外部网络禁用。实体手机和Safari未实测。",
+  "initial_acceptance": {
+    "source": "scripts/hi3d-repaired-acceptance.mjs 本轮实际stdout",
+    "passed": [
+      "桌面关闭缓存加载",
+      "白虎场景首次开局可见",
+      "鼠标快速点按出现弹丸",
+      "键盘快速点按不丢攻击",
+      "普通攻击伤害及命中提示",
+      "定身显示与移动",
+      "视频暂停保持游戏时间",
+      "视频继续播放按钮",
+      "原声视频完整播放后释放72分身",
+      "72分身清怪",
+      "法天象地可见",
+      "梦蝶普攻蝴蝶和塔伤害",
+      "梦蝶面条大招可见",
+      "跑酷换道与跳跃",
+      "跑酷普通攻击命中",
+      "天降大招命中",
+      "再次切回白虎实景",
+      "主动跳过视频后结算大招",
+      "暂停与恢复",
+      "光影画质切换",
+      "自动轮换顺序",
+      "重开教室无残留大招",
+      "196项本地资源请求与解码",
+      "390×844控件点击与双摇杆",
+      "844×390控件点击与双摇杆"
+    ],
+    "interruption": "在手机视频启动测试发现同一次触摸误点跳过；该测试中止，随后修改点击触发时机。已通过部分沿用，不重复执行。"
+  },
+  "final_targeted_report": "reports/hi3d-repaired-targeted.json",
+  "video_full_playback": {
+    "durationSeconds": 13.766667,
+    "totalFrames": 413,
+    "droppedFrames": 0,
+    "waitingEvents": 0,
+    "maxPresentedFrameIntervalMs": 50.1,
+    "muted": false,
+    "volume": 0.25,
+    "endClones": 72,
+    "simulationAdvanceDuringVideoSeconds": 0.066667
+  },
+  "media_change": {
+    "source": "用户上传的原视频",
+    "playback": "1280×720，H.264 High Level 3.1，BT.709 SDR，faststart",
+    "audio": "原AAC音轨直接复制，未裁切、未重编码；593个音频包，时长13.743991秒",
+    "frames": 413,
+    "original_preserved": "原附件及上一版交付目录均保留"
+  },
+  "fixes": [
+    "等待白虎异步加载完成才启用开始，进入及返回时同步画布、背景和地板",
+    "开局直接白虎岭，保留教室入口；场景选择可直接打开",
+    "快速点按保留动作边沿；左键/J/触屏普通攻击；右键拖动视角",
+    "触屏大招改为click阶段启动视频，避免同一手势误点新出现的跳过按钮",
+    "大招不再用全屏白光盖住模型和弹幕；伤害结算显示命中反馈",
+    "暂停和视频期间停止游戏更新及三维绘制；恢复时重置时钟和FPS窗口",
+    "预编译各场景材质；分离非活动场景和角色皮肤；限制动态阴影刷新频率",
+    "均衡模式关闭额外反射及Bloom；保留原模型和贴图，提供精细/均衡/流畅切换",
+    "移除隐藏GIF解码；保留视频完整时长与原声，浏览器播放副本预缓冲",
+    "默认自由游玩，暂停菜单可恢复30秒自动轮换"
+  ],
+  "limits": [
+    "实体手机、iOS Safari、旧GPU性能未验证",
+    "白虎岭仍使用原有独立背景渲染器；低端设备可切流畅模式",
+    "本轮修复功能与加载，不声称已达到三张参考图的电影级场景精度",
+    "没有发布到GitHub或其他网站"
+  ],
+  "profiles": [
+    {
+      "device": "触屏仿真390×844 / DPR3",
+      "stage": "journey",
+      "fps": 59.54545453512966,
+      "p95ms": 16.799999999999272,
+      "maxms": 50,
+      "frames": 131,
+      "mainCalls": 29,
+      "mainTriangles": 299929,
+      "background": {
+        "frame": 715,
+        "calls": 64,
+        "triangles": 1762312,
+        "points": 0,
+        "lines": 0
+      }
+    },
+    {
+      "device": "触屏仿真390×844 / DPR3",
+      "stage": "butterfly",
+      "fps": 60.279187814653426,
+      "p95ms": 16.799999999999272,
+      "maxms": 16.80000000000109,
+      "frames": 133,
+      "mainCalls": 249,
+      "mainTriangles": 277461,
+      "background": null
+    },
+    {
+      "device": "触屏仿真390×844 / DPR3",
+      "stage": "runner",
+      "fps": 60.29558435805559,
+      "p95ms": 16.700000000000728,
+      "maxms": 16.799999999999272,
+      "frames": 133,
+      "mainCalls": 286,
+      "mainTriangles": 953197,
+      "background": null
+    },
+    {
+      "device": "桌面1280×720",
+      "stage": "journey",
+      "fps": 59.375424919548564,
+      "p95ms": 16.799999999999727,
+      "maxms": 50,
+      "frames": 131,
+      "mainCalls": 29,
+      "mainTriangles": 420572,
+      "background": {
+        "frame": 725,
+        "calls": 66,
+        "triangles": 2438112,
+        "points": 0,
+        "lines": 0
+      }
+    },
+    {
+      "device": "桌面1280×720",
+      "stage": "butterfly",
+      "fps": 60.194614166100926,
+      "p95ms": 16.700000000000728,
+      "maxms": 16.800000000000182,
+      "frames": 133,
+      "mainCalls": 137,
+      "mainTriangles": 314353,
+      "background": null
+    },
+    {
+      "device": "桌面1280×720",
+      "stage": "runner",
+      "fps": 60.240963855421704,
+      "p95ms": 16.700000000000728,
+      "maxms": 16.800000000000182,
+      "frames": 133,
+      "mainCalls": 239,
+      "mainTriangles": 848343,
+      "background": null
+    }
+  ]
+}

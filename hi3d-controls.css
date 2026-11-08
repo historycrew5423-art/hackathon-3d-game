@@ -1,0 +1,39 @@
+/* Repairs override historical layout layers without replacing the original art. */
+#world{filter:none!important;transition:none;z-index:1}#bhl{z-index:0}
+#hud{position:relative;z-index:4;pointer-events:none}#welcome{z-index:6}.hero-caption{z-index:5}
+#glow{opacity:0;mix-blend-mode:normal}#glow b{display:none}
+#combat-feedback{position:fixed;left:50%;top:60%;transform:translateX(-50%);z-index:8;pointer-events:none;border:1px solid #f8da7c80;background:#183b32dd;color:#fff1b3;padding:8px 14px;border-radius:20px;font-size:13px;font-weight:700;opacity:0;transition:opacity .12s}
+#combat-feedback.visible{opacity:1}.frozen #world{outline:5px solid #98e9ed;outline-offset:-5px}
+.skill-pad .giant-button{top:-70px;height:58px!important;width:120px;border-radius:12px;white-space:nowrap;font-size:12px;padding:6px 10px}
+.skill-pad .giant-button span{writing-mode:horizontal-tb}.skill-pad .cooling{background:#536b64;border:1px solid #90a69e}
+#skill-cooldown{opacity:1;font-size:10px}.scene-visits button{min-height:44px}.setting select{max-width:160px;padding:7px;background:#e3e8da;border:1px solid #8b9c88;border-radius:6px;font:inherit;color:inherit}
+#scene-title{font-size:15px;margin-top:18px}.modal-backdrop{backdrop-filter:none;background:#10271ee6}
+.timer-card strong{white-space:nowrap}
+#memePop{display:none!important}.cinema-active #world,.cinema-active #bhl,.cinema-active #glow,.cinema-active #hahaRain{visibility:hidden!important}
+.cinema-active .topbar,.cinema-active #controls,.cinema-active #hud,.cinema-active #gag{visibility:hidden}
+.cinema-active *{animation-play-state:paused!important}
+@media(pointer:coarse),(max-width:900px){
+ #controls .joy{backdrop-filter:none;width:92px!important;height:92px!important;bottom:24px!important;left:20px!important}
+ #controls #look-joy{left:auto!important;right:30px!important;bottom:166px!important;width:82px!important;height:82px!important}
+ #controls .skill-pad{right:16px!important;bottom:18px!important;display:grid!important;grid-template-columns:60px 60px 60px!important;grid-template-rows:52px 60px!important;grid-template-areas:"aw jump giant" "laugh laugh ult"!important;gap:7px!important;max-width:none!important}
+ #controls .skill-pad button,#controls .skill-pad .laugh-button,#controls .skill-pad .ultimate-button,#controls .skill-pad .giant-button{width:100%!important;height:100%!important;min-height:44px!important;min-width:0!important;position:static!important;padding:5px!important;border-radius:14px!important;font-size:11px!important}
+ #controls .skill-pad .giant-button{grid-area:giant!important;border-width:1px!important}
+ #controls .skill-pad .laugh-button{flex-direction:row!important;gap:7px!important}
+ #controls .skill-pad .laugh-button span{font-size:12px!important}
+ #controls .skill-pad .giant-button span{font-size:10px!important}
+ #controls .skill-pad .ultimate-button small{display:block!important;font-size:9px!important;line-height:1.1}
+ .energy-card{left:145px!important;right:auto!important;width:170px!important;bottom:20px!important;max-width:none!important;min-width:0!important;padding:7px 10px!important}
+ .energy-card span{font-size:9px!important}#combat-feedback{top:54%;max-width:66vw;font-size:11px}
+ body #gag{left:42%;bottom:143px!important;max-width:50vw!important}#gag strong{font-size:10px}
+ .topbar .quiet{padding:8px!important;font-size:10px}.brand small{display:none}.topbar{padding:12px!important}
+ .mission{pointer-events:none}.top-right{gap:5px!important}.timer-card{top:62px!important;width:142px!important}.timer-card strong{font-size:18px!important}.timer-card>div:first-child>span{white-space:nowrap}.mission{top:62px!important}
+}
+@media(max-width:600px){
+ #controls #look-joy{bottom:220px!important;right:28px!important;width:82px!important;height:82px!important}
+ #controls #joy{left:18px!important;bottom:28px!important;width:92px!important;height:92px!important}
+ .energy-card{left:140px!important;right:20px!important;width:auto!important;bottom:159px!important}
+ body #gag{left:50%;top:150px!important;bottom:auto!important;max-width:85vw!important;padding:8px 12px}
+ .brand{font-size:10px!important}.brand-icon{width:27px;height:27px}.topbar .quiet{font-size:9px!important;padding:8px 6px!important}#collection-open{display:none}
+ #welcome{top:65px!important;bottom:16px!important;padding:35px 18px 25px!important;left:12px!important;right:12px!important;max-width:none!important;border-radius:18px;background:#fff8e9ed}
+ #welcome h1{font-size:40px!important;margin:15px 0}#welcome h1 em{font-size:28px}.sticker{left:210px;width:53px;height:53px}.intro-foot{font-size:9px}
+}

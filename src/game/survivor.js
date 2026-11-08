@@ -48,6 +48,8 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 	let hitstop = 0;
 	let camYaw = 0;
 	const ui = buildUI();
+	function cycleCam() { camMode = ( camMode + 1 ) % 3; toast( '视角：' + CAM_NAMES[ camMode ] ); ui.camBtn.textContent = '视角：' + CAM_NAMES[ camMode ] + ' (V)'; }
+	ui.camBtn.onclick = ( e ) => { e.currentTarget.blur(); cycleCam(); };
 	let S = null; // 一局的全部状态
 
 	// ---------- 输入 ----------
@@ -58,7 +60,7 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 		if ( e.code === 'Space' ) dash();
 		if ( e.code === 'KeyQ' ) ult();
 		if ( e.code === 'Escape' ) togglePause();
-		if ( e.code === 'KeyV' ) { camMode = ( camMode + 1 ) % 3; toast( '视角：' + CAM_NAMES[ camMode ] ); }
+		if ( e.code === 'KeyV' ) cycleCam();
 
 	} );
 	addEventListener( 'keyup', ( e ) => { keys[ e.code ] = false; } );
@@ -276,7 +278,7 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 		const shadow = new THREE.Mesh( blobGeo, blobMat ); shadow.scale.setScalar( 1.6 ); scene.add( shadow );
 		S = {
 			heroId, hero, h, shadow, pos: p, vel: new THREE.Vector3(), face: 0,
-			hp: hero.hp, maxHp: hero.hp, lv: 1, xp: 0, xpNext: 5, kills: 0, time: 0, laugh: 0, laughMax: 50,
+			hp: hero.hp, maxHp: hero.hp, lv: 1, xp: 0, xpNext: 4, kills: 0, time: 0, laugh: 0, laughMax: 50,
 			paused: false, over: false, iframe: 0, dashCd: 0, dashT: 0, attackT: 0, ultT: 0,
 			stats: { dmg: 1, rate: 1, multi: 0, pierce: 0, area: 1, speed: 1, cd: 1, back: false, sides: false, armor: 0, magnet: 3 },
 			skills: {}, form: null, enemies: [], bullets: [], gems: [], fx: [], clones: [], spawnAcc: 0, nextElite: 45, nextBoss: 150, bossAlive: false,
@@ -292,6 +294,8 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 		ui.heroIcon.src = asset( 'chars/' + hero.icon );
 		toast( '奶娃出击！自动开打，你只管走位' ); toast( 'V 切换视角 · 空格冲刺 · Q 大招' );
 		loadBossModel();
+		S.events = EARLY.slice();
+		setTimeout( () => S && ! S.over && levelUp( true ), 400 );
 		updateHud();
 
 	}
@@ -407,10 +411,33 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 		const w = S.hero.weapon;
 		for ( const d of dirs ) {
 
-			if ( w === 'staff' || w === 'rake' ) melee( d, w === 'rake' );
-			if ( w === 'staff' || w === 'orb' || w === 'dian' ) shoot( d, w );
+			if ( w === 'staff' ) throwStaff( d );
+			else { if ( w === 'rake' ) melee( d, true ); shoot( d, w ); }
 
 		}
+
+	}
+
+	const staffMeshGeo = new THREE.CylinderGeometry( 0.16, 0.16, 4.2, 8 ).rotateZ( Math.PI / 2 );
+	const staffCapGeo = new THREE.CylinderGeometry( 0.24, 0.24, 0.5, 8 ).rotateZ( Math.PI / 2 );
+	const staffMat = new THREE.MeshBasicMaterial( { color: 0xd9201c, fog: false } );
+	const goldMat = new THREE.MeshBasicMaterial( { color: 0xffc83a, fog: false } );
+	const trailMat = new THREE.MeshBasicMaterial( { color: 0xffb02e, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, fog: false } );
+	function throwStaff( a ) {
+
+		const st = S.stats, sc = st.area * ( S.ultT > 0 ? 2.2 : 1 );
+		const g = new THREE.Group();
+		g.add( new THREE.Mesh( staffMeshGeo, staffMat ) );
+		for ( const x of [ - 2.1, 2.1 ] ) { const c = new THREE.Mesh( staffCapGeo, goldMat ); c.position.x = x; g.add( c ); }
+		g.scale.setScalar( sc );
+		fxGroup.add( g );
+		const sp = 26, range = 20 + st.pierce * 3;
+		S.bullets.push( {
+			mesh: g, staff: true, x: S.pos.x, z: S.pos.z, vx: Math.sin( a ) * sp, vz: Math.cos( a ) * sp, life: range / sp * 2 + 0.6, out: range / sp,
+			r: 2.2 * sc, dmg: 20 * st.dmg, pierce: 999, boom: 0, boomer: true, back: false, hitSet: new Set(), tick: 0
+		} );
+		audio.play( 'hit', { gain: 0.3, rate: 1.6 } );
+		if ( Math.random() < 0.25 ) floatText( [ '金箍棒飞出去了！', '接棒！', '回旋棒·奶龙版', '棒棒哒' ][ ( Math.random() * 4 ) | 0 ], S.pos.x, S.pos.z, '#ffc83a' );
 
 	}
 
@@ -471,8 +498,14 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 
 			const b = S.bullets[ i ];
 			b.life -= dt;
-			if ( b.boomer && ! b.back && b.life < 0.7 ) { b.back = true; b.hitSet.clear(); }
-			if ( b.back ) { const dx = S.pos.x - b.x, dz = S.pos.z - b.z, d = Math.hypot( dx, dz ) + 1e-3; b.vx = dx / d * 24; b.vz = dz / d * 24; if ( d < 1 ) b.life = 0; }
+			if ( b.staff ) {
+
+				b.out -= dt; b.mesh.rotation.y += dt * 22;
+				if ( ! b.back && b.out <= 0 ) { b.back = true; b.hitSet.clear(); }
+				b.tick -= dt; if ( b.tick <= 0 ) { b.tick = 0.04; burst( b.x, H( b.x, b.z ) + 1.2, b.z, 6, 0xffb02e, 3, 1.5, 0.4 ); }
+
+			} else if ( b.boomer && ! b.back && b.life < 0.7 ) { b.back = true; b.hitSet.clear(); }
+			if ( b.back ) { const dx = S.pos.x - b.x, dz = S.pos.z - b.z, d = Math.hypot( dx, dz ) + 1e-3; b.vx = dx / d * 24; b.vz = dz / d * 24; if ( d < 1.2 ) b.life = 0; }
 			b.x += b.vx * dt; b.z += b.vz * dt;
 			b.mesh.position.set( b.x, H( b.x, b.z ) + 1.2, b.z );
 			let dead = b.life <= 0;
@@ -843,11 +876,11 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 
 	}
 
-	function levelUp() {
+	function levelUp( opening ) {
 
 		S.paused = true;
 		const cards = cardPool();
-		ui.cards.innerHTML = `<h2>${ S.lv >= 5 && ! S.form ? 'Lv5 选择攻击形态（不可逆）' : '升级！三选一' }</h2>`;
+		ui.cards.innerHTML = `<h2>${ opening ? '开局白嫖一张卡！' : '' }${ S.lv >= 5 && ! S.form ? 'Lv5 选择攻击形态（不可逆）' : '升级！三选一' }</h2>`;
 		const row = document.createElement( 'div' ); row.className = 'g-row';
 		for ( const c of cards ) {
 
@@ -877,7 +910,7 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 		S.xp += v;
 		if ( S.xp >= S.xpNext && ! S.paused ) {
 
-			S.xp -= S.xpNext; S.lv ++; S.xpNext = 5 + ( S.lv - 1 ) * 7;
+			S.xp -= S.xpNext; S.lv ++; S.xpNext = 4 + ( S.lv - 1 ) * 4;
 			floatText( 'Lv' + S.lv, S.pos.x, S.pos.z, '#7dff9a' ); audio.play( 'level' ); burst( S.pos.x, S.pos.y + 1, S.pos.z, 80, 0x7dff9a, 10, 10, 1 );
 			levelUp();
 
@@ -889,6 +922,41 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 	const _m = new THREE.Matrix4(), _q = new THREE.Quaternion(), _s = new THREE.Vector3(), _p = new THREE.Vector3(), _c = new THREE.Color();
 	const counters = {};
 	let shakeT = 0;
+
+	// 开局三分钟抽象事件表
+	const EARLY = [
+		[ 4, '咕咕嘎嘎！奶龙骨头兵来了', () => ring( 'imp', 14, 18 ) ],
+		[ 15, '鬼火发疯：哦咿啊哦咿啊', () => ring( 'wisp', 10, 16 ), 'level' ],
+		[ 25, '天降奶龙金币雨（经验）', () => { for ( let i = 0; i < 40; i ++ ) S.gems.push( { x: S.pos.x + ( Math.random() - 0.5 ) * 20, z: S.pos.z + ( Math.random() - 0.5 ) * 20, v: 1 } ); }, 'skill' ],
+		[ 38, '香蕉猫哭着冲过来了！', () => { for ( let i = 0; i < 2; i ++ ) spawn( 'brute' ); }, 'elite' ],
+		[ 50, '尸魔方阵：一眼丁真', () => ring( 'imp', 28, 20 ) ],
+		[ 62, '退！退！退！全屏冲击波（送你的）', () => shockRing( 30, 60 * S.stats.dmg, 18, 0x9fe7ff ), 'skill' ],
+		[ 75, '依托答辩从天而降', () => { for ( let i = 0; i < 6; i ++ ) { const x = S.pos.x + ( Math.random() - 0.5 ) * 24, z = S.pos.z + ( Math.random() - 0.5 ) * 24; telegraph( x, z, 3.5, 1.2, () => { explode( x, z, 3.5, 80 * S.stats.dmg, 0x8b5a2b, 8 ); if ( ( S.pos.x - x ) ** 2 + ( S.pos.z - z ) ** 2 < 12 ) hurtPlayer( 10, '踩到答辩了' ); }, 0x8b5a2b ); } } ],
+		[ 90, '泰裤辣！免费再升一级', () => { S.xp = S.xpNext; gainXp( 0 ); }, 'level' ],
+		[ 105, '鬼火弹幕潮：芭比Q了', () => ring( 'wisp', 20, 22 ) ],
+		[ 120, '奶娃狂暴：攻速翻倍 10 秒', () => { S.stats.rate *= 2; setTimeout( () => S && ( S.stats.rate /= 2 ), 10000 ); }, 'ult' ],
+		[ 135, '双精英：遥遥领先', () => { spawn( 'elite' ); spawn( 'elite' ); }, 'elite' ],
+		[ 148, '白骨精：我要出来了哦～', () => shake( 0.8 ), 'boss' ]
+	];
+	function ring( type, n, R ) { for ( let i = 0; i < n; i ++ ) { const a = i / n * 6.283; spawn( type, { x: S.pos.x + Math.sin( a ) * R, z: S.pos.z + Math.cos( a ) * R } ); } }
+	function timeline() {
+
+		while ( S.events.length && S.time >= S.events[ 0 ][ 0 ] ) {
+
+			const [ , msg, fn, snd ] = S.events.shift();
+			memeBanner( msg ); fn(); snd && audio.play( snd );
+
+		}
+
+	}
+	function memeBanner( msg ) {
+
+		const d = document.createElement( 'div' ); d.className = 'g-meme'; d.textContent = msg;
+		d.style.transform = `rotate(${ ( Math.random() - 0.5 ) * 12 }deg)`;
+		ui.root.appendChild( d ); setTimeout( () => d.remove(), 2200 );
+		flash( '#ffd54a' );
+
+	}
 
 	function enemySkill( e, d, nx, nz ) {
 
@@ -1026,6 +1094,7 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 		S.hash.clear();
 		for ( const e of S.enemies ) { const k = Math.floor( e.x / 4 ) * 73856093 ^ Math.floor( e.z / 4 ) * 19349663; let b = S.hash.get( k ); if ( ! b ) S.hash.set( k, ( b = [] ) ); b.push( e ); }
 		spawner( dt );
+		timeline();
 		fire( dt );
 		skills( dt );
 		bullets( dt );
@@ -1261,7 +1330,9 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 		@keyframes gfade{0%{opacity:0;transform:translateY(-6px)}10%{opacity:1;transform:none}80%{opacity:1}100%{opacity:0}}
 		.g-ult{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:repeating-conic-gradient(rgba(255,255,255,.12) 0 3deg,transparent 3deg 9deg);animation:gfade 1.1s forwards}
 		.g-ult b{font-size:64px;color:#ffd54a;-webkit-text-stroke:3px #3a1d00;letter-spacing:10px;transform:rotate(-6deg)}
-		.g-view{position:absolute;right:16px;top:14px;pointer-events:auto}
+		.g-view{position:absolute;right:16px;top:14px;pointer-events:auto}.g-view .g-btn{margin:0 0 0 8px}
+		.g-meme{position:absolute;top:34%;left:0;right:0;text-align:center;font-size:46px;font-weight:900;color:#fff36b;-webkit-text-stroke:2px #5a1500;text-shadow:0 0 18px #ff5a00;animation:gmeme 2.2s forwards;pointer-events:none}
+		@keyframes gmeme{0%{opacity:0;scale:3}12%{opacity:1;scale:1}85%{opacity:1}100%{opacity:0;scale:.8}}
 		.g-menu{background:radial-gradient(ellipse at center,rgba(60,20,10,.35),rgba(5,3,2,.85))}
 		.g-title{font-size:72px;font-weight:900;color:#ffd54a;-webkit-text-stroke:3px #3a1d00;letter-spacing:12px;text-shadow:0 6px 0 #8a3b00,0 10px 30px #000;transform:rotate(-3deg);animation:gbob 1.6s ease-in-out infinite alternate;text-align:center}
 		.g-title small{display:block;font-size:24px;letter-spacing:8px;color:#fff;-webkit-text-stroke:0;text-shadow:0 2px 6px #000}
@@ -1300,7 +1371,7 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 				<div class="g-info" id="g-info"></div><div class="g-skills" id="g-skills"></div></div>
 			<div class="g-ultbox"><button class="g-ultbtn" id="g-ult"><div id="g-laugh"></div><span style="position:relative">大招 Q</span></button></div>
 			<div class="g-help">WASD 移动 · 自动攻击 · 空格冲刺 · Q 大招 · V 视角 · Esc 暂停</div>
-			<a class="g-view g-btn" href="?mode=view">看风景模式</a>
+			<div class="g-view"><button class="g-btn" id="g-cambtn">视角：斜视 (V)</button><a class="g-btn" href="?mode=view">看风景</a></div>
 		</div>
 		<div class="g-panel hidden" id="g-cards"></div>
 		<div class="g-panel hidden" id="g-pause"><h2>暂停</h2><p>按 Esc 继续</p><button class="g-btn" onclick="location.reload()">回到主菜单</button></div>
@@ -1314,11 +1385,11 @@ export function createSurvivor( { scene, camera, renderer, dom, heightAt, onExit
 		$( 'g-howbtn' ).onclick = () => { $( 'g-how' ).classList.toggle( 'hidden' ); $( 'g-set' ).classList.add( 'hidden' ); };
 		$( 'g-setbtn' ).onclick = () => { $( 'g-set' ).classList.toggle( 'hidden' ); $( 'g-how' ).classList.add( 'hidden' ); };
 		root.querySelectorAll( 'input[data-k]' ).forEach( ( el ) => { el.value = audio.vol[ el.dataset.k ]; el.oninput = () => { audio.vol[ el.dataset.k ] = + el.value; audio.apply(); }; } );
-		$( 'g-cam' ).onchange = ( e ) => { camMode = + e.target.value; };
+		$( 'g-cam' ).onchange = ( e ) => { camMode = + e.target.value; root.querySelector( '#g-cambtn' ).textContent = '视角：' + CAM_NAMES[ camMode ] + ' (V)'; };
 		const u = {
 			root, select: $( 'g-select' ), loading: $( 'g-loading' ), hud: $( 'g-hud' ), cards: $( 'g-cards' ), pause: $( 'g-pause' ), over: $( 'g-over' ), toasts: $( 'g-toasts' ),
 			hp: $( 'g-hp' ).firstElementChild, xp: $( 'g-xp' ).firstElementChild, laugh: $( 'g-laugh' ), ultBtn: $( 'g-ult' ), info: $( 'g-info' ), skills: $( 'g-skills' ),
-			heroName: $( 'g-name' ), heroIcon: $( 'g-icon' ), flash: $( 'g-flash' ), bossBar: $( 'g-boss' ), bossFill: $( 'g-bossfill' )
+			heroName: $( 'g-name' ), heroIcon: $( 'g-icon' ), flash: $( 'g-flash' ), bossBar: $( 'g-boss' ), bossFill: $( 'g-bossfill' ), camBtn: $( 'g-cambtn' )
 		};
 		u.ultBtn.onclick = () => S && ult();
 		// 进度条：把高度当充能

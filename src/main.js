@@ -15,6 +15,7 @@ import { buildWater } from './world/water.js';
 import { buildMist } from './world/mist.js';
 import { buildStory } from './world/story.js';
 import { createControls } from './game/controls.js';
+import { createSurvivor } from './game/survivor.js';
 import { LIGHT_DIR, SUN_COLOR, VIEWS, viewSpec } from './config.js';
 
 // ---------------------------------------------------------------------------
@@ -26,9 +27,12 @@ const coarse = matchMedia( '(pointer: coarse)' ).matches;
 const TIERS = {
 	high: { dpr: Math.min( devicePixelRatio, 1.5 ), msaa: 4, shadow: 4096, shadowFar: 1700, terrainStep: 1.25, mapStep: 1, rock: 'high', terrainShadow: true, treeStep: 8, grassStep: 0.9 },
 	mid: { dpr: Math.min( devicePixelRatio, 1.0 ), msaa: 2, shadow: 2048, shadowFar: 1400, terrainStep: 2, mapStep: 1.5, rock: 'high', terrainShadow: false, treeStep: 10, grassStep: 1.3 },
+	// 游戏模式：镜头贴近角色俯视，远景只剩轮廓，所以降分辨率、关 MSAA、阴影只覆盖角色周围、树草稀疏
+	game: { dpr: Math.min( devicePixelRatio, 1.0 ), msaa: 0, shadow: 1024, shadowFar: 600, terrainStep: 3, mapStep: 2, rock: 'low', terrainShadow: false, treeStep: 14, grassStep: 2.2 },
 	low: { dpr: Math.min( devicePixelRatio, 0.8 ), msaa: 0, shadow: 1024, shadowFar: 1000, terrainStep: 3, mapStep: 2, rock: 'low', terrainShadow: false, treeStep: 14, grassStep: 2.0 }
 };
-const tier = TIERS[ PARAMS.get( 'q' ) ] ? PARAMS.get( 'q' ) : ( coarse ? 'low' : 'high' );
+const GAME = PARAMS.get( 'mode' ) !== 'view' && ! PARAMS.has( 'shot' );
+const tier = TIERS[ PARAMS.get( 'q' ) ] ? PARAMS.get( 'q' ) : GAME ? 'game' : ( coarse ? 'low' : 'high' );
 const Q = { ...TIERS[ tier ], tier };
 if ( SHOT ) Q.dpr = 1;
 
@@ -148,6 +152,14 @@ async function main() {
 	ui.loading.classList.add( 'hidden' );
 	if ( SHOT ) ui.loading.style.display = 'none';
 	setupUI();
+	if ( GAME ) {
+
+		for ( const id of [ 'views', 'hud' ] ) { const el = document.getElementById( id ); if ( el ) el.style.display = 'none'; }
+		survivor = createSurvivor( { scene, camera, renderer, dom: canvas, heightAt: terrain.heightAt } );
+		camera.fov = 50; camera.far = 420; camera.updateProjectionMatrix();
+		world.sky.mesh.scale.setScalar( 380 ); world.sky.mesh.onBeforeRender = () => world.sky.mesh.position.copy( camera.position );
+
+	}
 	api.ready = true;
 	requestAnimationFrame( loop );
 
@@ -164,6 +176,7 @@ function setupUI() {
 	} );
 	addEventListener( 'keydown', ( e ) => {
 
+		if ( survivor ) return;
 		const names = Object.keys( VIEWS );
 		const i = parseInt( e.key, 10 );
 		if ( i >= 1 && i <= names.length ) goView( names[ i - 1 ] );
@@ -196,6 +209,7 @@ addEventListener( 'resize', resize );
 // ---------------------------------------------------------------------------
 const timer = new THREE.Timer();
 let frozen = false;
+let survivor = null;
 let fpsAcc = 0, fpsN = 0;
 if ( PARAMS.has( 'debug' ) ) ui.debug.classList.remove( 'hidden' );
 
@@ -215,7 +229,7 @@ function loop( ts ) {
 	timer.update( ts );
 	const dt = Math.min( timer.getDelta(), 1 / 20 );
 	time.value += dt;
-	controls.update( dt );
+	if ( ! survivor || ! survivor.update( dt ) ) controls.update( dt );
 	renderFrame( dt );
 	fpsAcc += dt; fpsN ++;
 	if ( fpsAcc > 0.5 ) {
@@ -290,6 +304,7 @@ const api = window.__scene = {
 	},
 	get scene() { return scene; },
 	get world() { return world; },
+	get game() { return survivor; },
 	setAtmos: null
 };
 

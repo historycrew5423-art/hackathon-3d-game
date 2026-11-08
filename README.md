@@ -70,3 +70,17 @@ node tools/shot.mjs --views=ref,skull,village --tag=test    # 用本机 Edge（�
 - 没有人物（唐僧师徒、白骨精）。
 - 树和草是面片拼的，贴近看能看出是平面。
 - 瀑布在开场镜头里被雾挡住，没有单独检查过近看的效果。
+
+## 打包版：`hi3d-frog-dreams-web/`
+
+《奶蛙 · 课间梦游指南》的可直接运行的构建产物（来自 `hi3d-frog-dreams-web.zip`），
+纯静态、零依赖，双击打不开是因为浏览器拦模块加载，需要起个静态服务器：
+
+```bash
+cd hi3d-frog-dreams-web
+python -m http.server 8800     # 打开 http://127.0.0.1:8800/hi3d-index.html
+```
+
+- 入口 `hi3d-index.html`，`assets/` 是打包后的 JS/CSS/GLB/音效（含 7 个带骨骼的 rig 模型）
+- `baihuling/` 是白虎岭模块，素材分高清 `assets/` 与移动端 `assets-m/` 两套
+- 这是构建快照，源码请改 `naiwa_dream/` 后重新 build，不要直接改这里的 hash 文件名

@@ -1,0 +1,180 @@
+{
+  "pack": "naiwa-sfx",
+  "description": "《泥娃》缝合版拆出的音效资源包（从 nai_缝合版_naiwa_最终版.zip 提取，未做转码与裁剪）",
+  "source": "nai_缝合版_naiwa_最终版.zip :: naiwa/assets/audio/",
+  "count": 17,
+  "totalBytes": 1162862,
+  "totalDuration": 67.23,
+  "sounds": [
+    {
+      "name": "banana-cry-1",
+      "file": "banana-cry-1.mp3",
+      "format": "MP3",
+      "bytes": 92313,
+      "duration": 5.72,
+      "sampleRate": 44100,
+      "channels": 2,
+      "bitrateKbps": 128
+    },
+    {
+      "name": "banana-cry-2",
+      "file": "banana-cry-2.mp3",
+      "format": "MP3",
+      "bytes": 138063,
+      "duration": 5.72,
+      "sampleRate": 44100,
+      "channels": 2,
+      "bitrateKbps": 192
+    },
+    {
+      "name": "daodun-2",
+      "file": "daodun-2.mp3",
+      "format": "MP3",
+      "bytes": 21661,
+      "duration": 1.33,
+      "sampleRate": 44100,
+      "channels": 2,
+      "bitrateKbps": 64
+    },
+    {
+      "name": "daodun",
+      "file": "daodun.mp3",
+      "format": "MP3",
+      "bytes": 22497,
+      "duration": 1.38,
+      "sampleRate": 44100,
+      "channels": 2,
+      "bitrateKbps": 64
+    },
+    {
+      "name": "feidudu-echo",
+      "file": "feidudu-echo.mp3",
+      "format": "MP3",
+      "bytes": 11232,
+      "duration": 1.12,
+      "sampleRate": 24000,
+      "channels": 1,
+      "bitrateKbps": 80
+    },
+    {
+      "name": "feidudu",
+      "file": "feidudu.mp3",
+      "format": "MP3",
+      "bytes": 19152,
+      "duration": 1.92,
+      "sampleRate": 24000,
+      "channels": 1,
+      "bitrateKbps": 80
+    },
+    {
+      "name": "gugugaga-1",
+      "file": "gugugaga-1.mp3",
+      "format": "MP3",
+      "bytes": 20314,
+      "duration": 1.25,
+      "sampleRate": 44100,
+      "channels": 2,
+      "bitrateKbps": 64
+    },
+    {
+      "name": "gugugaga-2",
+      "file": "gugugaga-2.mp3",
+      "format": "MP3",
+      "bytes": 57600,
+      "duration": 1.44,
+      "sampleRate": 48000,
+      "channels": 2,
+      "bitrateKbps": 320
+    },
+    {
+      "name": "naiwa-baoxiao",
+      "file": "naiwa-baoxiao.mp3",
+      "format": "MP3",
+      "bytes": 228186,
+      "duration": 14.23,
+      "sampleRate": 48000,
+      "channels": 2,
+      "bitrateKbps": 64
+    },
+    {
+      "name": "naiwa-pet-laugh",
+      "file": "naiwa-pet-laugh.wav",
+      "format": "WAV",
+      "bytes": 79504,
+      "duration": 1.8,
+      "sampleRate": 22050,
+      "channels": 1,
+      "bitrateKbps": null
+    },
+    {
+      "name": "nl-dupu",
+      "file": "nl-dupu.mp3",
+      "format": "MP3",
+      "bytes": 10596,
+      "duration": 1.25,
+      "sampleRate": 22050,
+      "channels": 2,
+      "bitrateKbps": 112
+    },
+    {
+      "name": "nl-gagadilashui",
+      "file": "nl-gagadilashui.mp3",
+      "format": "MP3",
+      "bytes": 12403,
+      "duration": 1.36,
+      "sampleRate": 22050,
+      "channels": 2,
+      "bitrateKbps": 112
+    },
+    {
+      "name": "nl-gajiaosai",
+      "file": "nl-gajiaosai.mp3",
+      "format": "MP3",
+      "bytes": 10265,
+      "duration": 1.18,
+      "sampleRate": 22050,
+      "channels": 2,
+      "bitrateKbps": 112
+    },
+    {
+      "name": "nl-hola-gabadie",
+      "file": "nl-hola-gabadie.mp3",
+      "format": "MP3",
+      "bytes": 27600,
+      "duration": 1.85,
+      "sampleRate": 48000,
+      "channels": 2,
+      "bitrateKbps": 128
+    },
+    {
+      "name": "oiia-1",
+      "file": "oiia-1.mp3",
+      "format": "MP3",
+      "bytes": 91681,
+      "duration": 5.72,
+      "sampleRate": 44100,
+      "channels": 2,
+      "bitrateKbps": 128
+    },
+    {
+      "name": "oiia-2",
+      "file": "oiia-2.mp3",
+      "format": "MP3",
+      "bytes": 94848,
+      "duration": 5.93,
+      "sampleRate": 48000,
+      "channels": 2,
+      "bitrateKbps": 128
+    },
+    {
+      "name": "shanshenbu",
+      "file": "shanshenbu.mp3",
+      "format": "MP3",
+      "bytes": 224947,
+      "duration": 14.03,
+      "sampleRate": 44100,
+      "channels": 2,
+      "bitrateKbps": 64
+    }
+  ]
+}

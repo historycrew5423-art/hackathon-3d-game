@@ -100,3 +100,23 @@ python -m http.server 8800     # 打开 http://127.0.0.1:8800/hi3d-index.html
 
 改完源码的流程：`cd hi3d-handoff/source` → `node <vite>/bin/vite.js build --config hi3d-vite.config.mjs`
 → 把 `baihuling/` 的 JS 与素材拷进 `dist/baihuling/` → 用 `hi3d-frog-dreams-web/` 覆盖成新版。
+
+## 重制版：`naiwa-remake/`（2026-11-08）
+
+《奶蛙梦游》的可玩重制版，底子是 `hi3d-frog-dreams-web/`（11-08 01:03 那版），自带可改源码与打包脚本，
+是**第一个带完整美术重做的版本**：
+
+```bash
+cd naiwa-remake
+node serve.mjs        # 或双击 Play-Windows.bat，打开 http://127.0.0.1:8765/
+```
+
+- 玩法：`index.html`（= `hi3d-index.html`），加载 `assets/naiwa-remake.js`
+- 改场景：`src/remake.js`；原游戏代码（已格式化，改动处搜 `__RM`）：`src/app.js`
+- 改完 `node src/build.mjs` 重新生成 `assets/naiwa-remake.js` 并刷新 `index.html` 的版本号
+- `src/three_part.js` 是打包里的 three.js r180，`src/remake_alias.js` 是压缩名对照，一般不用动
+- 详细改动清单与已知限制见 [`naiwa-remake/重制说明.md`](naiwa-remake/重制说明.md)
+
+重做内容：教室（窗棂投影、25 套课桌、窗帘与光柱）、庄周梦蝶仙城（白玉平台 / 石桥 / 宫殿 / 喀斯特石峰 / 金蝶翼）、
+堂吉诃奶蛙风车路（麦田 / 石墙 / 帆布风车 / 浮空岛）、白虎岭主角换成绑骨孙悟空（`assets/wukong-rig.glb`），
+并修掉奶蛙发白、大招放不出、卡顿、手机双摇杆等问题。画质可加 `?q=low` / `?q=high`，电脑试双摇杆加 `?sticks=1`。

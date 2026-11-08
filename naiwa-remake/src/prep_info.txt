@@ -1,0 +1,5 @@
+appStart 654993
+missing MeshLambertMaterial,Vector2,Vector3,Matrix4,AmbientLight,TubeGeometry,DodecahedronGeometry
+clone i_
+math Yi
+appLines 5085

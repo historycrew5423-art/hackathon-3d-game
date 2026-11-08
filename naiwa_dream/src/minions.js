@@ -1,8 +1,10 @@
-// 3D 小怪：企鹅（咕咕嘎嘎，冲上来肘击）、刀盾狗（我的刀盾，举刀砍）、香蕉猫（哭着用香蕉头槌）、圆滚滚的 OIIA 猫（原地转圈撞人）
+// 3D 小怪。赛博西游里的四种是西游特化版（11-08 用户给的 Tripo 模型，见 scripts/bake_xy.mjs）：
+//   我的刀盾（柴犬妖扛大刀，后仰蓄力一刀劈下）、咕咕嘎嘎（披红披风的企鹅天兵，长戟往前捅）、
+//   哔哔拉布（戴香蕉头套的猫，香蕉头槌）、巴巴博一（圆滚滚的虎斑猫八戒，原地转圈撞人）。
 // 做法：加载模型 → 用代码摆出 8 帧走路 + 8 帧攻击 → 每帧烘焙成一份静态网格 → 每帧一个 InstancedMesh。
 // 几百只怪同屏也只多 64 次绘制，手机扛得住；不需要在运行时做骨骼蒙皮。
-//   企鹅和刀盾狗带 Tripo 骨骼：转骨骼摆姿势；
-//   两只猫没有骨骼（Tripo 直接生成的静态模型）：按身体部位直接挪顶点（腿前后摆、身体左右摇、香蕉弯腰、整只猫转圈）。
+//   带骨骼的模型（bake）：转骨骼摆姿势；现在只有缝合版留下来的 dogPose、penguinPose 还能用在带 Tripo 骨骼的模型上；
+//   没有骨骼的模型（bakeStatic，现在的小怪都是）：按身体部位直接挪顶点（脚轮流抬、身体左右摇、弯腰、扭身、整只转圈）。
 // 音效不在这里，见 src/sfx.js。
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -174,6 +176,42 @@ function elegantDeform(kind, k, p) {
   roll(p, Math.sin(a) * 0.12);
 }
 
+// ---------- 西游特化版小怪（Tripo 静态模型）：身高按 1 算，脚底 y=0，面朝 +X，+Z 是右手边（刀、长戟都拿在右手） ----------
+// 走路的共用部分：两只脚轮流抬起来往前迈，身子左右摇、一颠一颠。footY 以下算脚，footW 是两只脚分开多宽
+function waddle(k, p, footY, footW, rollAmp) {
+  const a = k * Math.PI * 2, s = Math.sin(a), side = clamp(p[2] / footW, -1, 1);
+  if (p[1] < footY) { const w = ramp(footY, footY * 0.3, p[1]), ph = s * side; p[1] += Math.max(0, ph) * 0.045 * w; p[0] += ph * 0.05 * w; }
+  p[1] += Math.abs(Math.cos(a)) * 0.015 * ramp(footY, footY * 2, p[1]);
+  roll(p, s * rollAmp);
+}
+// 腰（y = piv）往上整段往前弯（ang > 0）或往后仰（ang < 0），越往上弯得越多
+function bendAt(p, piv, ang, span) {
+  if (p[1] <= piv || !ang) return;
+  const a = ang * ramp(piv, piv + span, p[1]), ry = p[1] - piv, c = Math.cos(a), s = Math.sin(a), x = p[0];
+  p[0] = x * c + ry * s; p[1] = piv - x * s + ry * c;
+}
+// 上身绕竖轴扭：ang > 0 右肩往前，ang < 0 右肩往后
+function twistAt(p, from, ang) {
+  const t = ang * ramp(from, from + 0.4, p[1]);
+  if (!t) return;
+  const x = p[0], z = p[2], c = Math.cos(t), s = Math.sin(t);
+  p[0] = x * c + z * s; p[2] = -x * s + z * c;
+}
+// 我的刀盾：右手扛大刀、左手盾。攻击：后仰、右肩往后拧着蓄力 → 一刀往前劈下去、右肩甩到前面 → 收回；劈中的那一下压扁
+function daodunDeform(kind, k, p) {
+  if (kind === 'walk') { waddle(k, p, 0.1, 0.08, 0.07); return; }
+  twistAt(p, 0.3, key([[0, 0], [0.32, -0.45], [0.5, 0.5], [0.7, 0.4], [1, 0]], k));
+  bendAt(p, 0.25, key([[0, 0], [0.32, -0.3], [0.5, 0.55], [0.7, 0.45], [1, 0]], k), 0.35);
+  const sq = key([[0, 0], [0.45, 0], [0.52, 1], [0.7, 0.5], [1, 0]], k);
+  p[1] *= 1 - sq * 0.07; p[0] *= 1 + sq * 0.05; p[2] *= 1 + sq * 0.05;
+}
+// 咕咕嘎嘎：企鹅走路左右摇得很厉害。攻击：往后缩一下，再整个人往前扑，长戟捅出去
+function gugugagaDeform(kind, k, p) {
+  if (kind === 'walk') { waddle(k, p, 0.08, 0.07, 0.15); return; }
+  twistAt(p, 0.25, key([[0, 0], [0.3, -0.3], [0.5, 0.35], [1, 0]], k));
+  bendAt(p, 0.2, key([[0, 0], [0.3, -0.2], [0.5, 0.5], [0.72, 0.42], [1, 0]], k), 0.4);
+}
+
 // 羊（堂吉诃德把羊群当成敌军）：程序生成，不用模型。一团团白羊毛 + 黑脸 + 四条黑腿，走路时腿前后摆
 // 返回和 bake 一样的 { frames, mat }，坐标：身高 1、脚底 y=0、面朝 +X
 function makeSheep() {
@@ -298,13 +336,13 @@ async function bakeStatic(url, height, deform, opts = {}) {
 
 // 生成所有小怪的实例网格；maxPerFrame 是每一帧最多多少只。某个模型加载失败时跳过它（game.js 会拿企鹅顶上）
 export async function loadMinions(scene, maxPerFrame, base = '') {
-  // 西游记那一关的特化版模型做好以后，在这里加一行（比如 xyDog: [bake, 'assets/models/xy-dog.glb', 1.0, dogPose]），
-  // 再到 game.js 的 TYPES 里把对应小怪的 minion 改成新名字就行
+  // 名字（dog、penguin、banana、oiia）沿用缝合版的，game.js 里按名字区分的倒地动作、前冲距离、走路快慢都不用改。
+  // 换模型：改这里的文件和动作函数；加新的小怪：在这里加一行，再到 game.js 的 TYPES 里把 minion 改成新名字
   const defs = {
-    dog: [bake, base + 'assets/models/minion-b.glb', 1.0, dogPose],
-    penguin: [bake, base + 'assets/models/minion-a.glb', 1.0, penguinPose],
-    banana: [bakeStatic, base + 'assets/models/minion-c.glb', 1.0, bananaDeform],
-    oiia: [bakeStatic, base + 'assets/models/minion-d.glb', 1.0, oiiaDeform],
+    dog: [bakeStatic, base + 'assets/models/xy-dog.glb', 1.0, daodunDeform],          // 我的刀盾
+    penguin: [bakeStatic, base + 'assets/models/xy-penguin.glb', 1.0, gugugagaDeform], // 咕咕嘎嘎
+    banana: [bakeStatic, base + 'assets/models/xy-banana.glb', 1.0, bananaDeform],     // 哔哔拉布
+    oiia: [bakeStatic, base + 'assets/models/xy-cat.glb', 1.0, oiiaDeform],            // 巴巴博一
     elegantA: [bakeStatic, base + 'assets/models/elegant-a.glb', 1.0, elegantDeform, { faceZ: true, dance: true }],
     elegantB: [bakeStatic, base + 'assets/models/elegant-b.glb', 1.0, elegantDeform, { faceZ: true, dance: true }],
     sheep: [makeSheep],

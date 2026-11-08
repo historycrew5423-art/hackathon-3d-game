@@ -9,10 +9,10 @@
 //   换梦的过场：打喷嚏（庄周→西游）、笑到地震地面裂开掉下去（西游→堂吉诃德）、风车扇一大口风（堂吉诃德→庄周）。
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
-import { Rig, WALK_FRAMES, danceIndex } from './minions.js?v=20261107d';
-import { textTexture, pick } from './naiwa.js?v=20261107d';
-import { LINES } from './dialogue.js?v=20261107d';
-import { canvasTex, ROAD_HALF } from './world.js?v=20261107d';
+import { Rig, WALK_FRAMES, danceIndex } from './minions.js?v=20261108a';
+import { textTexture, pick } from './naiwa.js?v=20261108a';
+import { LINES } from './dialogue.js?v=20261108a';
+import { canvasTex, ROAD_HALF } from './world.js?v=20261108a';
 
 const lam = (color, emissive = 0) => new THREE.MeshLambertMaterial({ color, emissive });
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));

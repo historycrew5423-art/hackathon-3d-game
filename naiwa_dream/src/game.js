@@ -10,16 +10,16 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { clone as cloneSkinned } from 'three/addons/utils/SkeletonUtils.js';
-import { Input } from './input.js?v=20261107d';
-import { byId, drawCards, baseStats } from './skills.js?v=20261107d';
-import { PEOPLE, DREAMS, DREAM_LINES, CLASS_BOARD, SHIFT_TEXT, LINES, JOKES, RANKS, WAKE_LINES } from './dialogue.js?v=20261107d';
-import { loadMinions, frameIndex, danceIndex, lungeOffset, SWING_TIME, WALK_RATE, WALK_FRAMES } from './minions.js?v=20261107d';
-import { HAHA_GLYPHS, HAHA_COLORS, GLYPH_HEI, GLYPH_HU, hahaMaterial, floatText, updateFloats, loadLaugh, playHa, playHaChorus, playLaugh, stopLaugh, makeLaughUI, loadBigFrog, bigFrogPose, pick, setLaughOut, textTexture } from './naiwa.js?v=20261107d';
-import { initMixer, loadClips, heroOut, sfxOut, duck, heroSay, heroBusy, holdHero, mobSay, hasClip, voice, whoosh, pop, boing, boom, tone, speak, stopSpeak } from './sfx.js?v=20261107d';
-import { Pacing, PACE } from './pacing.js?v=20261107d';
-import { makeWorld, canvasTex, ROAD_HALF } from './world.js?v=20261107d';
-import { initMusic, playMusic, motif, duckMusic } from './music.js?v=20261107d';
-import { makeDreams } from './dreamplay.js?v=20261107d';
+import { Input } from './input.js?v=20261108a';
+import { byId, drawCards, baseStats } from './skills.js?v=20261108a';
+import { PEOPLE, DREAMS, DREAM_LINES, CLASS_BOARD, SHIFT_TEXT, LINES, JOKES, RANKS, WAKE_LINES } from './dialogue.js?v=20261108a';
+import { loadMinions, frameIndex, danceIndex, lungeOffset, SWING_TIME, WALK_RATE, WALK_FRAMES } from './minions.js?v=20261108a';
+import { HAHA_GLYPHS, HAHA_COLORS, GLYPH_HEI, GLYPH_HU, hahaMaterial, floatText, updateFloats, loadLaugh, playHa, playHaChorus, playLaugh, stopLaugh, makeLaughUI, loadBigFrog, bigFrogPose, pick, setLaughOut, textTexture } from './naiwa.js?v=20261108a';
+import { initMixer, loadClips, heroOut, sfxOut, duck, heroSay, heroBusy, holdHero, mobSay, hasClip, voice, whoosh, pop, boing, boom, tone, speak, stopSpeak } from './sfx.js?v=20261108a';
+import { Pacing, PACE } from './pacing.js?v=20261108a';
+import { makeWorld, canvasTex, ROAD_HALF } from './world.js?v=20261108a';
+import { initMusic, playMusic, motif, duckMusic } from './music.js?v=20261108a';
+import { makeDreams } from './dreamplay.js?v=20261108a';
 
 const VERSION = 'v1.0';
 const Q = new URLSearchParams(location.search);
@@ -72,12 +72,12 @@ const pushOut = (p, r) => world.pushOut(p, r);
 
 // ---------- 小怪 ----------
 // ai：chase 追奶蛙；desk 走向课桌上睡觉的奶蛙（庄周梦蝶）；tang 去抓唐僧（赛博西游）；cross 横穿马路（堂吉诃奶蛙的羊）
-// dream：在哪个梦里出现。西游记那四种的特化版模型还在做，先用原来的四种梗怪顶上（换模型见 minions.js 的 defs）
+// dream：在哪个梦里出现。西游那四种用的是西游特化版模型（11-08 换上，模型和动作见 minions.js 的 defs）
 const TYPES = [
   { key: 'gentle', dream: 0, r: 0.42, hp: 2, speed: 2.3, dmg: 5, xp: 1, minion: 'elegantA', mh: 1.15, ai: 'desk' },
   { key: 'agent', dream: 0, r: 0.46, hp: 3, speed: 2.0, dmg: 6, xp: 2, minion: 'elegantB', mh: 1.25, ai: 'desk' },
-  { key: 'daodun', dream: 1, r: 0.5, hp: 3, speed: 2.1, dmg: 7, xp: 1, minion: 'dog', mh: 1.3, ai: 'chase', tint: [1.15, 1.0, 0.85] },
-  { key: 'gugugaga', dream: 1, r: 0.36, hp: 1, speed: 3.6, dmg: 4, xp: 1, minion: 'penguin', mh: 1.0, ai: 'chase', tint: [0.95, 1.0, 1.25] },
+  { key: 'daodun', dream: 1, r: 0.5, hp: 3, speed: 2.1, dmg: 7, xp: 1, minion: 'dog', mh: 1.3, ai: 'chase' },
+  { key: 'gugugaga', dream: 1, r: 0.36, hp: 1, speed: 3.6, dmg: 4, xp: 1, minion: 'penguin', mh: 1.0, ai: 'chase' },
   { key: 'bibilabu', dream: 1, r: 0.42, hp: 2, speed: 2.7, dmg: 5, xp: 1, minion: 'banana', mh: 1.15, ai: 'tang' },
   { key: 'bababoyi', dream: 1, r: 0.5, hp: 4, speed: 1.9, dmg: 6, xp: 2, minion: 'oiia', mh: 1.05, ai: 'tang' },
   { key: 'sheep', dream: 2, r: 0.5, hp: 1, speed: 3.6, dmg: 4, xp: 1, minion: 'sheep', mh: 0.95, ai: 'cross' },
@@ -88,8 +88,8 @@ const T = Object.fromEntries(TYPES.map((t, i) => [t.key, i]));
 const MEME = {
   gentle: { intro: '高雅企鹅·侦探：Shhh! 请保持高雅', die: ['Oh dear!', '一点也不高雅……', '我的烟斗！'], pop: 'Oh dear', color: '#e8d7b0' },
   agent: { intro: '高雅企鹅·特工：How elegant.', die: ['Exquisite…', '伞……我的伞……', '优雅地倒下'], pop: '优雅', color: '#c9d4ff' },
-  daodun: { intro: '天兵·我的刀盾！', die: ['我的刀盾！！', 'What the dog doing?!', '刀……盾……'], pop: '刀盾！', color: '#ffd28a' },
-  gugugaga: { intro: '盘丝洞·咕咕嘎嘎？', die: ['咕咕嘎嘎！', '嘎——！', '咕咕……嘎'], pop: '嘎！', color: '#9fe8ff' },
+  daodun: { intro: '巡山小妖·我的刀盾！', die: ['我的刀盾！！', 'What the dog doing?!', '刀……盾……'], pop: '刀盾！', color: '#ffd28a' },
+  gugugaga: { intro: '天兵·咕咕嘎嘎？', die: ['咕咕嘎嘎！', '嘎——！', '咕咕……嘎'], pop: '嘎！', color: '#9fe8ff' },
   bibilabu: { intro: '香蕉精·哔哔拉布：呜哇哇（哭）', die: ['呜哇——哔哔拉布', '呜呜呜……', '哇啊啊啊'], pop: '呜哇', color: '#fff36b' },
   bababoyi: { intro: '猫八戒·巴巴博一', die: ['巴巴博一～', '博一……', '巴巴！'], pop: '博一', color: '#ffb8ec' },
   sheep: { intro: '敌军！（其实是羊）', die: ['咩——！', '咩～（飞走了）', '我是羊！'], pop: '咩！', color: '#ffffff' },

@@ -9,8 +9,11 @@
 | `gen_dream_voices.py` | 用 edge-tts 合成老师、奶蛙、高雅企鹅、孙悟空、沙僧、堂吉诃德、桑丘、背手负鼠、羊的配音 → `dl/dream/tts/*.mp3`。用法：`python gen_dream_voices.py [名字...]` | Python 3，`pip install edge-tts`，要联网 |
 | `grab_instants.mjs` | 从 myinstants 的页面或搜索结果里找 mp3 并下载 → `dl/dream/` | Node 20+，要联网 |
 | `prep_dream_audio.mjs`、`prep_new_tts.mjs` | 把下载的梗音效和合成的配音转成单声道 mp3、裁掉开头静音、限制长度 → `assets/audio/` | ffmpeg、ffprobe |
+| `bake_xy.mjs`（11-08） | 西游特化版小怪：仓库根目录 `assets/models/tripo_convert_*.glb` 的 4 个 Tripo 模型（各约 190 万面）先绕中轴拍成 1024 圆柱贴图，再减到约 7000 面 → `assets/models/xy-*.glb`。路径已经按仓库的目录写好，可以直接运行 `node naiwa_dream/scripts/bake_xy.mjs` | Node 20+，`@gltf-transform/core`、`meshoptimizer`、`sharp` |
 
 ## 缝合版（10-31）
+梦境版已经不用这里做出来的 `minion-a~d.glb` 了（11-08 换成了西游特化版小怪），脚本只留作记录。
+
 | 脚本 | 做什么 | 依赖 |
 |---|---|---|
 | `process_minions.mjs` | 把企鹅、刀盾狗两个 Tripo 模型（各约 85 MB）减面到约 1.1 万面、贴图压到 1024 JPG，保留骨骼 → `assets/models/minion-a.glb`、`minion-b.glb` | 同上 |

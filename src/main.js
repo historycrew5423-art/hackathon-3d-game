@@ -156,8 +156,8 @@ async function main() {
 
 		for ( const id of [ 'views', 'hud' ] ) { const el = document.getElementById( id ); if ( el ) el.style.display = 'none'; }
 		survivor = createSurvivor( { scene, camera, renderer, dom: canvas, heightAt: terrain.heightAt } );
-		camera.fov = 50; camera.far = 420; camera.updateProjectionMatrix();
-		world.sky.mesh.scale.setScalar( 380 ); world.sky.mesh.onBeforeRender = () => world.sky.mesh.position.copy( camera.position );
+		camera.fov = 55; camera.far = 900; camera.updateProjectionMatrix();
+		world.sky.mesh.scale.setScalar( 850 ); world.sky.mesh.onBeforeRender = () => world.sky.mesh.position.copy( camera.position );
 
 	}
 	api.ready = true;

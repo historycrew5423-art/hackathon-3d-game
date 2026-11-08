@@ -1,0 +1,1076 @@
+{
+  "started": "2026-11-08T04:23:48.641Z",
+  "method": "Real Edge/WebGL2 over local HTTP, cache disabled, external requests blocked. Real keyboard and touch events; deterministic fixed-step advancement for 30-second scenes.",
+  "checks": [
+    {
+      "name": "All runtime GLBs loaded without fallback",
+      "status": "passed"
+    },
+    {
+      "name": "Keyboard movement",
+      "status": "passed"
+    },
+    {
+      "name": "Jump and landing",
+      "status": "passed"
+    },
+    {
+      "name": "Pause/resume holds simulation time",
+      "status": "passed"
+    },
+    {
+      "name": "Butterflies destroy all three towers and trigger dance",
+      "status": "passed",
+      "health": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "Exact 72 frogs: 12 skeletal + 60 same-character instances",
+      "status": "passed"
+    },
+    {
+      "name": "Contagious laughter and four soul copies",
+      "status": "passed"
+    },
+    {
+      "name": "Three-second awkward-laugh freeze",
+      "status": "passed"
+    },
+    {
+      "name": "Pre-fractured floor and actors fall",
+      "status": "passed"
+    },
+    {
+      "name": "Runner lane switching and jump",
+      "status": "passed"
+    },
+    {
+      "name": "Tornado physically reaches and hits moving windmill",
+      "status": "passed"
+    },
+    {
+      "name": "Continuous 40m modules and at least one free lane",
+      "status": "passed",
+      "indices": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "rows": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "name": "All three dreams loop back after 30s each",
+      "status": "passed",
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        },
+        {
+          "stage": "journey",
+          "time": 34.73
+        },
+        {
+          "stage": "tunnel",
+          "time": 65.95
+        },
+        {
+          "stage": "runner",
+          "time": 70.97
+        },
+        {
+          "stage": "butterfly",
+          "time": 101.68
+        }
+      ]
+    },
+    {
+      "name": "Volume, reduced shake, collection and local save",
+      "status": "passed"
+    },
+    {
+      "name": "Four scene snapshots exported with original geometry and material",
+      "status": "passed"
+    },
+    {
+      "name": "Native touch jump, special skill, and 390px layout",
+      "status": "passed"
+    },
+    {
+      "name": "Missing-GLB visible fallback keeps game playable",
+      "status": "passed"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "path": "/hi3d-index.html",
+      "status": 200
+    },
+    {
+      "path": "/hi3d-style.css",
+      "status": 200
+    },
+    {
+      "path": "/src/hi3d-main.js",
+      "status": 200
+    },
+    {
+      "path": "/src/game/hi3d-Assets.js",
+      "status": 200
+    },
+    {
+      "path": "/src/game/hi3d-Input.js",
+      "status": 200
+    },
+    {
+      "path": "/src/game/hi3d-Actor.js",
+      "status": 200
+    },
+    {
+      "path": "/src/fx/hi3d-Effects.js",
+      "status": 200
+    },
+    {
+      "path": "/src/audio/hi3d-Audio.js",
+      "status": 200
+    },
+    {
+      "path": "/src/legacy/hi3d-pacing.js",
+      "status": 200
+    },
+    {
+      "path": "/src/legacy/hi3d-naiwa.js",
+      "status": 200
+    },
+    {
+      "path": "/src/legacy/hi3d-skills.js",
+      "status": 200
+    },
+    {
+      "path": "/src/scenes/hi3d-ButterflyScene.js",
+      "status": 200
+    },
+    {
+      "path": "/vendor/three.module.js",
+      "status": 200
+    },
+    {
+      "path": "/src/scenes/hi3d-JourneyScene.js",
+      "status": 200
+    },
+    {
+      "path": "/src/scenes/hi3d-Transitions.js",
+      "status": 200
+    },
+    {
+      "path": "/src/scenes/hi3d-RunnerScene.js",
+      "status": 200
+    },
+    {
+      "path": "/src/legacy/hi3d-input.js",
+      "status": 200
+    },
+    {
+      "path": "/vendor/utils/SkeletonUtils.js",
+      "status": 200
+    },
+    {
+      "path": "/vendor/loaders/GLTFLoader.js",
+      "status": 200
+    },
+    {
+      "path": "/src/legacy/hi3d-minions.js",
+      "status": 200
+    },
+    {
+      "path": "/src/legacy/hi3d-laugh-audio.js",
+      "status": 200
+    },
+    {
+      "path": "/src/borrowed/hi3d-rain.js",
+      "status": 200
+    },
+    {
+      "path": "/src/borrowed/hi3d-rock-noise.js",
+      "status": 200
+    },
+    {
+      "path": "/src/borrowed/hi3d-canyon-arch.js",
+      "status": 200
+    },
+    {
+      "path": "/vendor/utils/BufferGeometryUtils.js",
+      "status": 200
+    },
+    {
+      "path": "/src/borrowed/hi3d-rain-glsl.js",
+      "status": 200
+    },
+    {
+      "path": "/vendor/three.core.js",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-bigfrog.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-kangaroo-game.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-whale-game.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-duck-game.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-penguin-game.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-opossum-game.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-umbrella-game.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-journey-mountain.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-monster-proxy.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-laughing-shield.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-floor-fragments.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-running-windmill-proxy.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-runner-wheat-0.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-runner-wheat-1.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-runner-village-0.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-runner-village-1.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-runner-clouds-0.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-runner-clouds-1.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/models/hi3d-dream-tunnel.glb",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/img/hi3d-naiwa-belly-laugh.gif",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/audio/hi3d-naiwa-baoxiao.mp3",
+      "status": 200
+    },
+    {
+      "path": "/public/assets/audio/hi3d-naiwa-pet-laugh.wav",
+      "status": 200
+    },
+    {
+      "path": "/src/game/hi3d-ExportScene.js",
+      "status": 200
+    },
+    {
+      "path": "/vendor/exporters/GLTFExporter.js",
+      "status": 200
+    }
+  ],
+  "snapshots": [
+    {
+      "ready": true,
+      "stage": "school",
+      "time": 0,
+      "totalTime": 0,
+      "running": false,
+      "paused": false,
+      "score": 0,
+      "round": 0,
+      "energy": 40,
+      "freeze": 0,
+      "cold": 0,
+      "player": [
+        0,
+        0.45,
+        2.7
+      ],
+      "frogCount": 1,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        100,
+        100,
+        100
+      ],
+      "runner": {
+        "distance": 0,
+        "hits": 0
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        }
+      ],
+      "loaded": [
+        "mountain",
+        "monster",
+        "shield",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "kangaroo",
+        "whale",
+        "duck",
+        "opossum",
+        "umbrella",
+        "penguin",
+        "bigfrog"
+      ],
+      "errors": [],
+      "collection": [],
+      "drawCalls": 69,
+      "triangles": 1252,
+      "fps": 7
+    },
+    {
+      "ready": true,
+      "stage": "butterfly",
+      "time": 4.52,
+      "totalTime": 8.53,
+      "running": true,
+      "paused": false,
+      "score": 21,
+      "round": 0,
+      "energy": 51.61666666666699,
+      "freeze": 0,
+      "cold": 0,
+      "player": [
+        1.4999999999999996,
+        0,
+        4
+      ],
+      "frogCount": 1,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        72,
+        72,
+        72
+      ],
+      "runner": {
+        "distance": 0,
+        "hits": 0
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        }
+      ],
+      "loaded": [
+        "mountain",
+        "monster",
+        "shield",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "kangaroo",
+        "whale",
+        "duck",
+        "opossum",
+        "umbrella",
+        "penguin",
+        "bigfrog"
+      ],
+      "errors": [],
+      "collection": [],
+      "drawCalls": 228,
+      "triangles": 111647,
+      "fps": 1
+    },
+    {
+      "ready": true,
+      "stage": "butterfly",
+      "time": 20.35,
+      "totalTime": 24.37,
+      "running": true,
+      "paused": false,
+      "score": 237,
+      "round": 0,
+      "energy": 79.35000000000056,
+      "freeze": 0,
+      "cold": 0.5590632707831377,
+      "player": [
+        1.4999999999999996,
+        0,
+        4
+      ],
+      "frogCount": 1,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        0,
+        0,
+        0
+      ],
+      "runner": {
+        "distance": 0,
+        "hits": 0
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        }
+      ],
+      "loaded": [
+        "mountain",
+        "monster",
+        "shield",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "kangaroo",
+        "whale",
+        "duck",
+        "opossum",
+        "umbrella",
+        "penguin",
+        "bigfrog"
+      ],
+      "errors": [],
+      "collection": [
+        "高雅，但塔没了"
+      ],
+      "drawCalls": 112,
+      "triangles": 145797,
+      "fps": 0
+    },
+    {
+      "ready": true,
+      "stage": "journey",
+      "time": 4.53,
+      "totalTime": 39.27,
+      "running": true,
+      "paused": false,
+      "score": 237,
+      "round": 0,
+      "energy": 90.75000000000088,
+      "freeze": 0,
+      "cold": 0.01602729940987418,
+      "player": [
+        -2.7,
+        0,
+        3
+      ],
+      "frogCount": 72,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        0,
+        0,
+        0
+      ],
+      "runner": {
+        "distance": 0,
+        "hits": 0
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        },
+        {
+          "stage": "journey",
+          "time": 34.73
+        }
+      ],
+      "loaded": [
+        "mountain",
+        "monster",
+        "shield",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "kangaroo",
+        "whale",
+        "duck",
+        "opossum",
+        "umbrella",
+        "penguin",
+        "bigfrog"
+      ],
+      "errors": [],
+      "collection": [
+        "高雅，但塔没了"
+      ],
+      "drawCalls": 163,
+      "triangles": 52952,
+      "fps": 1
+    },
+    {
+      "ready": true,
+      "stage": "journey",
+      "time": 31.07,
+      "totalTime": 65.8,
+      "running": true,
+      "paused": false,
+      "score": 237,
+      "round": 0,
+      "energy": 90.75000000000088,
+      "freeze": 0,
+      "cold": 0.9999957130043252,
+      "player": [
+        -2.7,
+        -6.615000000000014,
+        3
+      ],
+      "frogCount": 72,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        0,
+        0,
+        0
+      ],
+      "runner": {
+        "distance": 0,
+        "hits": 0
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        },
+        {
+          "stage": "journey",
+          "time": 34.73
+        }
+      ],
+      "loaded": [
+        "mountain",
+        "monster",
+        "shield",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "kangaroo",
+        "whale",
+        "duck",
+        "opossum",
+        "umbrella",
+        "penguin",
+        "bigfrog"
+      ],
+      "errors": [],
+      "collection": [
+        "高雅，但塔没了",
+        "全世界都在替我尴尬",
+        "灵魂比本人更活泼"
+      ],
+      "drawCalls": 104,
+      "triangles": 50722,
+      "fps": 1
+    },
+    {
+      "ready": true,
+      "stage": "tunnel",
+      "time": 1.25,
+      "totalTime": 67.2,
+      "running": true,
+      "paused": false,
+      "score": 237,
+      "round": 0,
+      "energy": 90.75000000000088,
+      "freeze": 0,
+      "cold": 0.9999989428398823,
+      "player": [
+        0,
+        0,
+        0
+      ],
+      "frogCount": 1,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        0,
+        0,
+        0
+      ],
+      "runner": {
+        "distance": 0,
+        "hits": 0
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        },
+        {
+          "stage": "journey",
+          "time": 34.73
+        },
+        {
+          "stage": "tunnel",
+          "time": 65.95
+        }
+      ],
+      "loaded": [
+        "mountain",
+        "monster",
+        "shield",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "kangaroo",
+        "whale",
+        "duck",
+        "opossum",
+        "umbrella",
+        "penguin",
+        "bigfrog"
+      ],
+      "errors": [],
+      "collection": [
+        "高雅，但塔没了",
+        "全世界都在替我尴尬",
+        "灵魂比本人更活泼"
+      ],
+      "drawCalls": 11,
+      "triangles": 7478,
+      "fps": 7
+    },
+    {
+      "ready": true,
+      "stage": "runner",
+      "time": 5.03,
+      "totalTime": 76,
+      "running": true,
+      "paused": false,
+      "score": 262,
+      "round": 0,
+      "energy": 70.35000000000113,
+      "freeze": 0,
+      "cold": 0.11080315820298484,
+      "player": [
+        3.999999999999999,
+        0,
+        4
+      ],
+      "frogCount": 1,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        0,
+        0,
+        0
+      ],
+      "runner": {
+        "distance": 80.53333333333313,
+        "lane": 1,
+        "hits": 1,
+        "theme": 0,
+        "state": "BlownAway"
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        },
+        {
+          "stage": "journey",
+          "time": 34.73
+        },
+        {
+          "stage": "tunnel",
+          "time": 65.95
+        },
+        {
+          "stage": "runner",
+          "time": 70.97
+        }
+      ],
+      "loaded": [
+        "mountain",
+        "monster",
+        "shield",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "kangaroo",
+        "whale",
+        "duck",
+        "opossum",
+        "umbrella",
+        "penguin",
+        "bigfrog"
+      ],
+      "errors": [],
+      "collection": [
+        "高雅，但塔没了",
+        "全世界都在替我尴尬",
+        "灵魂比本人更活泼",
+        "风车拒绝下班"
+      ],
+      "drawCalls": 237,
+      "triangles": 135532,
+      "fps": 0
+    },
+    {
+      "ready": true,
+      "stage": "runner",
+      "time": 10.67,
+      "totalTime": 81.63,
+      "running": true,
+      "paused": false,
+      "score": 252,
+      "round": 0,
+      "energy": 54.1500000000012,
+      "freeze": 0,
+      "cold": 0.0003963022680299731,
+      "player": [
+        3.999999999999999,
+        0,
+        4
+      ],
+      "frogCount": 1,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        0,
+        0,
+        0
+      ],
+      "runner": {
+        "distance": 170.66666666666842,
+        "lane": 1,
+        "hits": 1,
+        "theme": 1,
+        "state": "Fleeing"
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        },
+        {
+          "stage": "journey",
+          "time": 34.73
+        },
+        {
+          "stage": "tunnel",
+          "time": 65.95
+        },
+        {
+          "stage": "runner",
+          "time": 70.97
+        }
+      ],
+      "loaded": [
+        "mountain",
+        "monster",
+        "shield",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "kangaroo",
+        "whale",
+        "duck",
+        "opossum",
+        "umbrella",
+        "penguin",
+        "bigfrog"
+      ],
+      "errors": [],
+      "collection": [
+        "高雅，但塔没了",
+        "全世界都在替我尴尬",
+        "灵魂比本人更活泼",
+        "风车拒绝下班"
+      ],
+      "drawCalls": 189,
+      "triangles": 71812,
+      "fps": 1
+    },
+    {
+      "ready": true,
+      "stage": "runner",
+      "time": 21.33,
+      "totalTime": 92.3,
+      "running": true,
+      "paused": false,
+      "score": 222,
+      "round": 0,
+      "energy": 0,
+      "freeze": 0,
+      "cold": 0.7256975891966594,
+      "player": [
+        3.999999999999999,
+        0,
+        4
+      ],
+      "frogCount": 1,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        0,
+        0,
+        0
+      ],
+      "runner": {
+        "distance": 341.33333333333445,
+        "lane": 1,
+        "hits": 1,
+        "theme": 2,
+        "state": "Fleeing"
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        },
+        {
+          "stage": "journey",
+          "time": 34.73
+        },
+        {
+          "stage": "tunnel",
+          "time": 65.95
+        },
+        {
+          "stage": "runner",
+          "time": 70.97
+        }
+      ],
+      "loaded": [
+        "mountain",
+        "monster",
+        "shield",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "kangaroo",
+        "whale",
+        "duck",
+        "opossum",
+        "umbrella",
+        "penguin",
+        "bigfrog"
+      ],
+      "errors": [],
+      "collection": [
+        "高雅，但塔没了",
+        "全世界都在替我尴尬",
+        "灵魂比本人更活泼",
+        "风车拒绝下班"
+      ],
+      "drawCalls": 106,
+      "triangles": 158408,
+      "fps": 0
+    }
+  ],
+  "exports": [
+    {
+      "file": "assets_src/snapshots/hi3d-dream-classroom.glb",
+      "bytes": 775040
+    },
+    {
+      "file": "assets_src/snapshots/hi3d-dream-butterfly.glb",
+      "bytes": 8642860
+    },
+    {
+      "file": "assets_src/snapshots/hi3d-dream-cyber.glb",
+      "bytes": 1805284
+    },
+    {
+      "file": "assets_src/snapshots/hi3d-dream-runner.glb",
+      "bytes": 4256216
+    }
+  ],
+  "status": "passed",
+  "finished": "2026-11-08T04:24:48.833Z",
+  "elapsedSeconds": 60.192
+}

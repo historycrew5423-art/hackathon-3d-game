@@ -1,0 +1,5 @@
+{
+ "name":"hi3d-frog-dreams","version":"0.1.0","private":true,"type":"module",
+ "scripts":{"dev":"vite --config hi3d-vite.config.mjs","build":"vite build --config hi3d-vite.config.mjs","preview":"vite preview --config hi3d-vite.config.mjs"},
+ "devDependencies":{"vite":"6.1.0"}
+}

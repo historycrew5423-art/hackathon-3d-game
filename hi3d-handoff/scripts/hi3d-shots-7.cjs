@@ -1,0 +1,11 @@
+const path=require('path');const {chromium}=require(path.join(process.cwd(),'.hi3d','web-tools','node_modules','playwright'));const http=require('http'),fs=require('fs');
+const root=path.join(process.cwd(),'exports','frog-dreams','dist');const types={'.js':'text/javascript','.html':'text/html','.css':'text/css','.glb':'model/gltf-binary'};
+const srv=http.createServer((q,r)=>{const f=path.join(root,decodeURIComponent(q.url.split('?')[0]));fs.readFile(f,(e,d)=>{if(e){r.writeHead(404);r.end();return;}r.writeHead(200,{'Content-Type':types[path.extname(f)]||'application/octet-stream'});r.end(d);});}).listen(0,async()=>{const port=srv.address().port;
+ const b=await chromium.launch({executablePath:'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',headless:true,args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});const p=await b.newPage({viewport:{width:1000,height:560}});const errs=[];p.on('pageerror',e=>errs.push(e.message));
+ await p.goto(`http://127.0.0.1:${port}/hi3d-index.html?check=1`);await p.waitForFunction(()=>window.__dream?.snapshot?.().ready,null,{timeout:180000});
+ const R={errors:await p.evaluate(()=>window.__dream.snapshot().errors)};await p.evaluate(()=>{document.querySelectorAll('[data-ui],#intro,#welcome').forEach(e=>e.style.display='none');});
+ R.school=await p.evaluate(()=>window.__dream.game.player.skin);await p.screenshot({path:'exports/frog-dreams/reports/hi3d-v7-school.png'});
+ const go=async(s,t)=>{await p.evaluate(([s,t])=>{const g=window.__dream.game;g.running=true;window.__dream.enter(s);window.__dream.advance(t);},[s,t]);return p.evaluate(()=>window.__dream.game.player.skin);};
+ R.butterfly=await go('butterfly',1);await p.screenshot({path:'exports/frog-dreams/reports/hi3d-v7-butterfly.png'});
+ await p.evaluate(()=>window.__dream.game.input.press('laugh'));R.journey=await go('journey',3);await p.screenshot({path:'exports/frog-dreams/reports/hi3d-v7-journey.png'});
+ R.runner=await go('runner',2);await p.screenshot({path:'exports/frog-dreams/reports/hi3d-v7-runner.png'});console.log(JSON.stringify(R),errs);await b.close();srv.close();});

@@ -1,0 +1,38 @@
+{
+  "started": "2026-11-08T04:29:04.054Z",
+  "checks": [
+    "Restart during a transition resets the director",
+    "Completed-loop best score survives browser reload",
+    "Built Vite entry runs all dreams and audio/skill resources offline"
+  ],
+  "errors": [],
+  "buildRequests": [
+    "/dist/hi3d-index.html",
+    "/dist/assets/hi3d-hi3d-index-C65JUY1_.css",
+    "/dist/assets/hi3d-hi3d-index-CtWydcme.js",
+    "/dist/assets/hi3d-hi3d-bigfrog-D8rBCgc3.glb",
+    "/dist/assets/hi3d-hi3d-whale-game-C8ACwrvx.glb",
+    "/dist/assets/hi3d-hi3d-kangaroo-game-DV_imRK5.glb",
+    "/dist/assets/hi3d-hi3d-duck-game-BD5VLu9b.glb",
+    "/dist/assets/hi3d-hi3d-opossum-game-BCDf4zDl.glb",
+    "/dist/assets/hi3d-hi3d-penguin-game-Bah5RF4b.glb",
+    "/dist/assets/hi3d-hi3d-umbrella-game-CLHht7L2.glb",
+    "/dist/assets/hi3d-hi3d-monster-proxy-C7W23t5K.glb",
+    "/dist/assets/hi3d-hi3d-laughing-shield-CgXP9R5N.glb",
+    "/dist/assets/hi3d-hi3d-journey-mountain-D3NR4Ls3.glb",
+    "/dist/assets/hi3d-hi3d-floor-fragments-CY2JdYK-.glb",
+    "/dist/assets/hi3d-hi3d-running-windmill-proxy-0L5F9oAb.glb",
+    "/dist/assets/hi3d-hi3d-runner-wheat-0-D4jngYmO.glb",
+    "/dist/assets/hi3d-hi3d-runner-wheat-1-BVojUNGR.glb",
+    "/dist/assets/hi3d-hi3d-runner-village-0-CVn0xBMj.glb",
+    "/dist/assets/hi3d-hi3d-runner-village-1-D3_7uYvi.glb",
+    "/dist/assets/hi3d-hi3d-runner-clouds-0-CVe5Q9-a.glb",
+    "/dist/assets/hi3d-hi3d-runner-clouds-1-BorjMbjI.glb",
+    "/dist/assets/hi3d-hi3d-dream-tunnel-pRKu35Ny.glb",
+    "/dist/assets/hi3d-hi3d-naiwa-belly-laugh-Dfsi2156.gif",
+    "/dist/assets/hi3d-hi3d-naiwa-pet-laugh-BMByrdmZ.wav",
+    "/dist/assets/hi3d-hi3d-naiwa-baoxiao-BzVRPwlN.mp3"
+  ],
+  "status": "passed",
+  "finished": "2026-11-08T04:29:10.210Z"
+}

@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "reopened": true,
+  "elapsedSeconds": 1.53,
+  "scenes": [
+    {
+      "scene": "01_classroom",
+      "meshObjects": 66,
+      "polygons": 1246,
+      "source": "assets_src/snapshots/hi3d-dream-classroom.glb"
+    },
+    {
+      "scene": "02_butterfly",
+      "meshObjects": 111,
+      "polygons": 76845,
+      "source": "assets_src/snapshots/hi3d-dream-butterfly.glb"
+    },
+    {
+      "scene": "03_cyber",
+      "meshObjects": 206,
+      "polygons": 51416,
+      "source": "assets_src/snapshots/hi3d-dream-cyber.glb"
+    },
+    {
+      "scene": "04_runner",
+      "meshObjects": 137,
+      "polygons": 157158,
+      "source": "assets_src/snapshots/hi3d-dream-runner.glb"
+    }
+  ]
+}

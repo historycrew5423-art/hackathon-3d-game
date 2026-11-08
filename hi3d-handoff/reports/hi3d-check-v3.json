@@ -1,0 +1,31 @@
+{
+  "checks": [
+    "desktop: 白虎岭场景加载",
+    "desktop: 蝴蝶从嘴部喷出",
+    "desktop: 袋鼠喷小袋鼠",
+    "desktop: 高雅人士丢梗 2",
+    "desktop: 四个西游小怪模型加载",
+    "desktop: 按技能前只有本体，小怪 12",
+    "desktop: 自动锁定喷嘿，小怪中招/传染 7 lock=false",
+    "desktop: 按技能出现 72 个大奶蛙 + 全屏发光",
+    "desktop: 3 秒内清怪 19",
+    "desktop: 西游 → 跑酷切换",
+    "desktop: 哈字龙卷风",
+    "desktop: 天降捧腹砸风车",
+    "mobile: 白虎岭场景加载",
+    "mobile: 摇杆移动",
+    "mobile: 蝴蝶从嘴部喷出",
+    "mobile: 袋鼠喷小袋鼠",
+    "mobile: 高雅人士丢梗 2",
+    "mobile: 四个西游小怪模型加载",
+    "mobile: 按技能前只有本体，小怪 12",
+    "mobile: 自动锁定喷嘿，小怪中招/传染 8 lock=true",
+    "mobile: 按技能出现 72 个大奶蛙 + 全屏发光",
+    "mobile: 3 秒内清怪 22",
+    "mobile: 西游 → 跑酷切换",
+    "mobile: 哈字龙卷风",
+    "mobile: 天降捧腹砸风车"
+  ],
+  "errors": [],
+  "status": "passed"
+}

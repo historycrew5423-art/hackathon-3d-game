@@ -1,0 +1,6 @@
+const path=require('node:path'),fs=require('node:fs');const M=p=>require(path.join(process.cwd(),'.hi3d','web-tools','node_modules',p));
+const {NodeIO}=M('@gltf-transform/core');const {ALL_EXTENSIONS}=M('@gltf-transform/extensions');const F=M('@gltf-transform/functions');const {MeshoptSimplifier}=M('meshoptimizer');
+const jobs=[['hi3d-Untitled_allparts_20261108_003307_1.glb','frog-school'],['hi3d-美猴王风格3D角色 带盔甲与金箍棒_allparts_20261108_004500_1.glb','frog-monkey'],['hi3d-风格化Q版中世纪战士3D模型_allparts_20261108_003811_1.glb','frog-knight']];
+(async()=>{await MeshoptSimplifier.ready;const io=new NodeIO().registerExtensions(ALL_EXTENSIONS);fs.mkdirSync('.hi3d/pre',{recursive:true});
+ for(const [f,n] of jobs){const doc=await io.read(f);await doc.transform(F.weld(),F.simplify({simplifier:MeshoptSimplifier,ratio:.025,error:.002}),F.prune());let t=0;for(const m of doc.getRoot().listMeshes())for(const p of m.listPrimitives())t+=(p.getIndices()?.getCount()??p.getAttribute('POSITION').getCount())/3;await io.write('.hi3d/pre/'+n+'.glb',doc);console.log(n,Math.round(t),fs.statSync('.hi3d/pre/'+n+'.glb').size);}
+})().catch(e=>{console.error(e);process.exit(1);});

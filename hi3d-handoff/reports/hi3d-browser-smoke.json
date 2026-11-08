@@ -1,0 +1,520 @@
+{
+  "errors": [
+    "HTTP 404 http://127.0.0.1:63920/public/assets/models/hi3d-duck-game.glb",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "HTTP 404 http://127.0.0.1:63920/public/assets/models/hi3d-opossum-game.glb",
+    "Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ],
+  "requests": [
+    {
+      "url": "/hi3d-index.html?check=1",
+      "status": 200
+    },
+    {
+      "url": "/hi3d-style.css",
+      "status": 200
+    },
+    {
+      "url": "/src/hi3d-main.js",
+      "status": 200
+    },
+    {
+      "url": "/src/game/hi3d-Assets.js",
+      "status": 200
+    },
+    {
+      "url": "/src/game/hi3d-Input.js",
+      "status": 200
+    },
+    {
+      "url": "/src/game/hi3d-Actor.js",
+      "status": 200
+    },
+    {
+      "url": "/src/fx/hi3d-Effects.js",
+      "status": 200
+    },
+    {
+      "url": "/src/audio/hi3d-Audio.js",
+      "status": 200
+    },
+    {
+      "url": "/src/legacy/hi3d-pacing.js",
+      "status": 200
+    },
+    {
+      "url": "/src/legacy/hi3d-skills.js",
+      "status": 200
+    },
+    {
+      "url": "/src/legacy/hi3d-naiwa.js",
+      "status": 200
+    },
+    {
+      "url": "/src/scenes/hi3d-ButterflyScene.js",
+      "status": 200
+    },
+    {
+      "url": "/src/scenes/hi3d-JourneyScene.js",
+      "status": 200
+    },
+    {
+      "url": "/src/scenes/hi3d-Transitions.js",
+      "status": 200
+    },
+    {
+      "url": "/src/scenes/hi3d-RunnerScene.js",
+      "status": 200
+    },
+    {
+      "url": "/vendor/three.module.js",
+      "status": 200
+    },
+    {
+      "url": "/vendor/utils/SkeletonUtils.js",
+      "status": 200
+    },
+    {
+      "url": "/src/legacy/hi3d-input.js",
+      "status": 200
+    },
+    {
+      "url": "/vendor/loaders/GLTFLoader.js",
+      "status": 200
+    },
+    {
+      "url": "/src/legacy/hi3d-laugh-audio.js",
+      "status": 200
+    },
+    {
+      "url": "/src/borrowed/hi3d-rain.js",
+      "status": 200
+    },
+    {
+      "url": "/src/legacy/hi3d-minions.js",
+      "status": 200
+    },
+    {
+      "url": "/src/borrowed/hi3d-rock-noise.js",
+      "status": 200
+    },
+    {
+      "url": "/src/borrowed/hi3d-canyon-arch.js",
+      "status": 200
+    },
+    {
+      "url": "/src/borrowed/hi3d-rain-glsl.js",
+      "status": 200
+    },
+    {
+      "url": "/vendor/utils/BufferGeometryUtils.js",
+      "status": 200
+    },
+    {
+      "url": "/vendor/three.core.js",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-duck-game.glb",
+      "status": 404
+    },
+    {
+      "url": "/public/assets/models/hi3d-whale-game.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-kangaroo-game.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-bigfrog.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-opossum-game.glb",
+      "status": 404
+    },
+    {
+      "url": "/public/assets/models/hi3d-penguin-game.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-umbrella-game.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-monster-proxy.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-laughing-shield.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-journey-mountain.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-floor-fragments.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-running-windmill-proxy.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-runner-wheat-0.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-runner-wheat-1.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-runner-village-0.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-runner-village-1.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-runner-clouds-0.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-runner-clouds-1.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/models/hi3d-dream-tunnel.glb",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/img/hi3d-naiwa-belly-laugh.gif",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/audio/hi3d-naiwa-pet-laugh.wav",
+      "status": 200
+    },
+    {
+      "url": "/public/assets/audio/hi3d-naiwa-baoxiao.mp3",
+      "status": 200
+    }
+  ],
+  "snapshots": [
+    {
+      "ready": true,
+      "stage": "school",
+      "time": 0,
+      "totalTime": 0,
+      "running": false,
+      "paused": false,
+      "score": 0,
+      "round": 0,
+      "energy": 40,
+      "freeze": 0,
+      "cold": 0,
+      "player": [
+        0,
+        0.45,
+        2.7
+      ],
+      "frogCount": 1,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        100,
+        100,
+        100
+      ],
+      "runner": {
+        "distance": 0,
+        "hits": 0
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        }
+      ],
+      "loaded": [
+        "duck",
+        "opossum",
+        "monster",
+        "shield",
+        "mountain",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "whale",
+        "kangaroo",
+        "penguin",
+        "umbrella",
+        "bigfrog"
+      ],
+      "errors": [
+        "duck",
+        "opossum"
+      ],
+      "collection": [],
+      "drawCalls": 69,
+      "triangles": 1252,
+      "fps": 0
+    },
+    {
+      "ready": true,
+      "stage": "butterfly",
+      "time": 5.73,
+      "totalTime": 9.75,
+      "running": true,
+      "paused": false,
+      "score": 57,
+      "round": 0,
+      "energy": 88.86666666666679,
+      "freeze": 0,
+      "cold": 0,
+      "player": [
+        0,
+        0,
+        4
+      ],
+      "frogCount": 1,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        24,
+        24,
+        24
+      ],
+      "runner": {
+        "distance": 0,
+        "hits": 0
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        }
+      ],
+      "loaded": [
+        "duck",
+        "opossum",
+        "monster",
+        "shield",
+        "mountain",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "whale",
+        "kangaroo",
+        "penguin",
+        "umbrella",
+        "bigfrog"
+      ],
+      "errors": [
+        "duck",
+        "opossum"
+      ],
+      "collection": [],
+      "drawCalls": 211,
+      "triangles": 109223,
+      "fps": 21
+    },
+    {
+      "ready": true,
+      "stage": "journey",
+      "time": 5.12,
+      "totalTime": 39.85,
+      "running": true,
+      "paused": false,
+      "score": 363,
+      "round": 0,
+      "energy": 100,
+      "freeze": 0,
+      "cold": 0,
+      "player": [
+        -2.7,
+        0,
+        3
+      ],
+      "frogCount": 72,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        0,
+        0,
+        0
+      ],
+      "runner": {
+        "distance": 0,
+        "hits": 0
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        },
+        {
+          "stage": "journey",
+          "time": 34.73
+        }
+      ],
+      "loaded": [
+        "duck",
+        "opossum",
+        "monster",
+        "shield",
+        "mountain",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "whale",
+        "kangaroo",
+        "penguin",
+        "umbrella",
+        "bigfrog"
+      ],
+      "errors": [
+        "duck",
+        "opossum"
+      ],
+      "collection": [
+        "高雅，但塔没了"
+      ],
+      "drawCalls": 156,
+      "triangles": 52246,
+      "fps": 10
+    },
+    {
+      "ready": true,
+      "stage": "runner",
+      "time": 3.85,
+      "totalTime": 74.82,
+      "running": true,
+      "paused": false,
+      "score": 403,
+      "round": 0,
+      "energy": 88,
+      "freeze": 0,
+      "cold": 0,
+      "player": [
+        0,
+        0,
+        4
+      ],
+      "frogCount": 1,
+      "nearCount": 12,
+      "crowdCount": 60,
+      "fragments": 24,
+      "towers": [
+        0,
+        0,
+        0
+      ],
+      "runner": {
+        "distance": 61.59999999999986,
+        "lane": 0,
+        "hits": 0,
+        "theme": 0,
+        "state": "Fleeing"
+      },
+      "history": [
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "school",
+          "time": 0
+        },
+        {
+          "stage": "butterfly",
+          "time": 4.02
+        },
+        {
+          "stage": "journey",
+          "time": 34.73
+        },
+        {
+          "stage": "tunnel",
+          "time": 65.95
+        },
+        {
+          "stage": "runner",
+          "time": 70.97
+        }
+      ],
+      "loaded": [
+        "duck",
+        "opossum",
+        "monster",
+        "shield",
+        "mountain",
+        "floor",
+        "mill",
+        "wheat0",
+        "wheat1",
+        "village0",
+        "village1",
+        "clouds0",
+        "clouds1",
+        "tunnel",
+        "whale",
+        "kangaroo",
+        "penguin",
+        "umbrella",
+        "bigfrog"
+      ],
+      "errors": [
+        "duck",
+        "opossum"
+      ],
+      "collection": [
+        "高雅，但塔没了",
+        "灵魂比本人更活泼"
+      ],
+      "drawCalls": 188,
+      "triangles": 125252,
+      "fps": 13
+    }
+  ]
+}

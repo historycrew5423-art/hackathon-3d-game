@@ -1,0 +1,452 @@
+{
+  "version": 2,
+  "stage": "可玩原型；西游特化小怪待替换，风车为可动原型",
+  "entry": "hi3d-index.html",
+  "units": "meter",
+  "up": "Y",
+  "forward": "-Z",
+  "frogCount": 72,
+  "nearClones": 12,
+  "instancedClones": 60,
+  "fragments": 24,
+  "roadLength": 40,
+  "assets": [
+    {
+      "id": "bigfrog",
+      "label": "旧游戏大奶蛙，主角及72分身",
+      "file": "public/assets/models-m/hi3d-bigfrog.glb",
+      "bytes": 84928,
+      "placeholder": false,
+      "nodes": [
+        "Head",
+        "Forearm.L",
+        "UpperArm.L",
+        "Forearm.R",
+        "UpperArm.R",
+        "Chest",
+        "Foot.L",
+        "Leg.L",
+        "Foot.R",
+        "Leg.R",
+        "Pelvis",
+        "BigFrog_SkinnedMesh",
+        "BigFrog_Rig"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "whale",
+      "label": "鲸鱼女仆",
+      "file": "public/assets/models-m/hi3d-whale-game.glb",
+      "bytes": 618856,
+      "placeholder": false,
+      "nodes": [
+        "CHARACTER_SURFACE",
+        "ROOT"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "kangaroo",
+      "label": "黄色袋鼠",
+      "file": "public/assets/models-m/hi3d-kangaroo-game.glb",
+      "bytes": 558784,
+      "placeholder": false,
+      "nodes": [
+        "CHARACTER_SURFACE",
+        "ROOT"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "duck",
+      "label": "篮球背包鸭",
+      "file": "public/assets/models-m/hi3d-duck-game.glb",
+      "bytes": 545980,
+      "placeholder": false,
+      "nodes": [
+        "CHARACTER_SURFACE",
+        "ROOT"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "opossum",
+      "label": "负鼠",
+      "file": "public/assets/models-m/hi3d-opossum-game.glb",
+      "bytes": 567360,
+      "placeholder": false,
+      "nodes": [
+        "CHARACTER_SURFACE",
+        "ROOT"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "penguin",
+      "label": "侦探企鹅",
+      "file": "public/assets/models-m/hi3d-penguin-game.glb",
+      "bytes": 781976,
+      "placeholder": false,
+      "nodes": [
+        "CHARACTER_SURFACE",
+        "ROOT"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "umbrella",
+      "label": "雨伞特工企鹅",
+      "file": "public/assets/models-m/hi3d-umbrella-game.glb",
+      "bytes": 755072,
+      "placeholder": false,
+      "nodes": [
+        "CHARACTER_SURFACE",
+        "ROOT"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "monster",
+      "label": "西游四种怪物共用占位，待用户专用模型",
+      "file": "public/assets/models-m/hi3d-monster-proxy.glb",
+      "bytes": 7716,
+      "placeholder": true,
+      "nodes": [
+        "PROXY_BODY",
+        "PROXY_EYE.002",
+        "PROXY_EYE.003",
+        "ROOT.001"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "shield",
+      "label": "shield",
+      "file": "public/assets/models-m/hi3d-laughing-shield.glb",
+      "bytes": 2700,
+      "placeholder": false,
+      "nodes": [
+        "SHIELD",
+        "ROOT.002"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "mountain",
+      "label": "mountain",
+      "file": "public/assets/models-m/hi3d-journey-mountain.glb",
+      "bytes": 92964,
+      "placeholder": false,
+      "nodes": [
+        "ENV_MAT_coral",
+        "ENV_MAT_cream",
+        "ENV_MAT_dark",
+        "ENV_MAT_gold",
+        "ENV_MAT_jade",
+        "ENV_MAT_mint",
+        "ENV_MAT_red",
+        "ENV_MAT_stone",
+        "ENV_MAT_wood",
+        "ROOT.004"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "floor",
+      "label": "floor",
+      "file": "public/assets/models-m/hi3d-floor-fragments.glb",
+      "bytes": 32544,
+      "placeholder": false,
+      "nodes": [
+        "FLOOR_FRAGMENT_00",
+        "FLOOR_FRAGMENT_01",
+        "FLOOR_FRAGMENT_02",
+        "FLOOR_FRAGMENT_03",
+        "FLOOR_FRAGMENT_04",
+        "FLOOR_FRAGMENT_05",
+        "FLOOR_FRAGMENT_06",
+        "FLOOR_FRAGMENT_07",
+        "FLOOR_FRAGMENT_08",
+        "FLOOR_FRAGMENT_09",
+        "FLOOR_FRAGMENT_10",
+        "FLOOR_FRAGMENT_11",
+        "FLOOR_FRAGMENT_12",
+        "FLOOR_FRAGMENT_13",
+        "FLOOR_FRAGMENT_14",
+        "FLOOR_FRAGMENT_15",
+        "FLOOR_FRAGMENT_16",
+        "FLOOR_FRAGMENT_17",
+        "FLOOR_FRAGMENT_18",
+        "FLOOR_FRAGMENT_19",
+        "FLOOR_FRAGMENT_20",
+        "FLOOR_FRAGMENT_21",
+        "FLOOR_FRAGMENT_22",
+        "FLOOR_FRAGMENT_23",
+        "ROOT.003"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "mill",
+      "label": "可动风车原型",
+      "file": "public/assets/models-m/hi3d-running-windmill-proxy.glb",
+      "bytes": 30960,
+      "placeholder": true,
+      "nodes": [
+        "BLADE_0",
+        "BLADE_1",
+        "BLADE_2",
+        "BLADE_3",
+        "BLADE_CROSS",
+        "BLADE_CROSS.001",
+        "BLADE_CROSS.002",
+        "BLADE_CROSS.003",
+        "BLADE_CROSS.004",
+        "BLADE_CROSS.005",
+        "BLADE_CROSS.006",
+        "BLADE_CROSS.007",
+        "BLADE_CROSS.008",
+        "BLADE_CROSS.009",
+        "BLADE_CROSS.010",
+        "BLADE_CROSS.011",
+        "BLADE_HUB",
+        "BLADE_PIVOT",
+        "SHIN_L",
+        "SHOE_L",
+        "LEG_L",
+        "SHIN_R",
+        "SHOE_R",
+        "LEG_R",
+        "MILL_BODY",
+        "MILL_EYE",
+        "MILL_EYE.001",
+        "MILL_PUPIL",
+        "MILL_PUPIL.001",
+        "MILL_ROOF",
+        "WORRIED_BROW",
+        "WORRIED_BROW.001",
+        "ROOT.005"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "wheat0",
+      "label": "wheat0",
+      "file": "public/assets/models-m/hi3d-runner-wheat-0.glb",
+      "bytes": 88012,
+      "placeholder": false,
+      "nodes": [
+        "ENV_MAT_cream.001",
+        "ENV_MAT_gold.001",
+        "ENV_MAT_white",
+        "ENV_MAT_wood.001",
+        "ROOT.006"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "wheat1",
+      "label": "wheat1",
+      "file": "public/assets/models-m/hi3d-runner-wheat-1.glb",
+      "bytes": 87852,
+      "placeholder": false,
+      "nodes": [
+        "ENV_MAT_cream.002",
+        "ENV_MAT_gold.002",
+        "ENV_MAT_white.001",
+        "ENV_MAT_wood.002",
+        "ROOT.007"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "village0",
+      "label": "village0",
+      "file": "public/assets/models-m/hi3d-runner-village-0.glb",
+      "bytes": 44164,
+      "placeholder": false,
+      "nodes": [
+        "ENV_MAT_cream.003",
+        "ENV_MAT_gold.003",
+        "ENV_MAT_grass",
+        "ENV_MAT_pink",
+        "ENV_MAT_white.002",
+        "ENV_MAT_wood.003",
+        "BISCUIT_ROOF",
+        "HOUSE_WALL",
+        "WINDOW",
+        "WINDOW.001",
+        "HANGING_HOUSE",
+        "BISCUIT_ROOF.001",
+        "HOUSE_WALL.001",
+        "WINDOW.002",
+        "WINDOW.003",
+        "HANGING_HOUSE.001",
+        "BISCUIT_ROOF.002",
+        "HOUSE_WALL.002",
+        "WINDOW.004",
+        "WINDOW.005",
+        "HANGING_HOUSE.002",
+        "BISCUIT_ROOF.003",
+        "HOUSE_WALL.003",
+        "WINDOW.006",
+        "WINDOW.007",
+        "HANGING_HOUSE.003",
+        "BISCUIT_ROOF.004",
+        "HOUSE_WALL.004",
+        "WINDOW.008",
+        "WINDOW.009",
+        "HANGING_HOUSE.004",
+        "BISCUIT_ROOF.005",
+        "HOUSE_WALL.005",
+        "WINDOW.010",
+        "WINDOW.011",
+        "HANGING_HOUSE.005",
+        "BISCUIT_ROOF.006",
+        "HOUSE_WALL.006",
+        "WINDOW.012",
+        "WINDOW.013",
+        "HANGING_HOUSE.006",
+        "BISCUIT_ROOF.007",
+        "HOUSE_WALL.007",
+        "WINDOW.014",
+        "WINDOW.015",
+        "HANGING_HOUSE.007",
+        "ROOT.008"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "village1",
+      "label": "village1",
+      "file": "public/assets/models-m/hi3d-runner-village-1.glb",
+      "bytes": 44468,
+      "placeholder": false,
+      "nodes": [
+        "ENV_MAT_cream.004",
+        "ENV_MAT_gold.004",
+        "ENV_MAT_grass.001",
+        "ENV_MAT_pink.001",
+        "ENV_MAT_white.003",
+        "ENV_MAT_wood.004",
+        "BISCUIT_ROOF.008",
+        "HOUSE_WALL.008",
+        "WINDOW.016",
+        "WINDOW.017",
+        "HANGING_HOUSE.008",
+        "BISCUIT_ROOF.009",
+        "HOUSE_WALL.009",
+        "WINDOW.018",
+        "WINDOW.019",
+        "HANGING_HOUSE.009",
+        "BISCUIT_ROOF.010",
+        "HOUSE_WALL.010",
+        "WINDOW.020",
+        "WINDOW.021",
+        "HANGING_HOUSE.010",
+        "BISCUIT_ROOF.011",
+        "HOUSE_WALL.011",
+        "WINDOW.022",
+        "WINDOW.023",
+        "HANGING_HOUSE.011",
+        "BISCUIT_ROOF.012",
+        "HOUSE_WALL.012",
+        "WINDOW.024",
+        "WINDOW.025",
+        "HANGING_HOUSE.012",
+        "BISCUIT_ROOF.013",
+        "HOUSE_WALL.013",
+        "WINDOW.026",
+        "WINDOW.027",
+        "HANGING_HOUSE.013",
+        "BISCUIT_ROOF.014",
+        "HOUSE_WALL.014",
+        "WINDOW.028",
+        "WINDOW.029",
+        "HANGING_HOUSE.014",
+        "BISCUIT_ROOF.015",
+        "HOUSE_WALL.015",
+        "WINDOW.030",
+        "WINDOW.031",
+        "HANGING_HOUSE.015",
+        "ROOT.009"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "clouds0",
+      "label": "clouds0",
+      "file": "public/assets/models-m/hi3d-runner-clouds-0.glb",
+      "bytes": 91308,
+      "placeholder": false,
+      "nodes": [
+        "ENV_MAT_blue",
+        "ENV_MAT_coral.001",
+        "ENV_MAT_cream.005",
+        "ENV_MAT_gold.005",
+        "ENV_MAT_lilac",
+        "ENV_MAT_mint.001",
+        "ENV_MAT_pink.002",
+        "ENV_MAT_white.004",
+        "ROOT.010"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "clouds1",
+      "label": "clouds1",
+      "file": "public/assets/models-m/hi3d-runner-clouds-1.glb",
+      "bytes": 91344,
+      "placeholder": false,
+      "nodes": [
+        "ENV_MAT_blue.001",
+        "ENV_MAT_coral.002",
+        "ENV_MAT_cream.006",
+        "ENV_MAT_gold.006",
+        "ENV_MAT_lilac.001",
+        "ENV_MAT_mint.002",
+        "ENV_MAT_pink.003",
+        "ENV_MAT_white.005",
+        "ROOT.011"
+      ],
+      "animationClips": []
+    },
+    {
+      "id": "tunnel",
+      "label": "tunnel",
+      "file": "public/assets/models-m/hi3d-dream-tunnel.glb",
+      "bytes": 38316,
+      "placeholder": false,
+      "nodes": [
+        "ENV_MAT_cream.007",
+        "ENV_MAT_dark.001",
+        "ENV_MAT_gold.007",
+        "ENV_MAT_lilac.002",
+        "ROOT.012"
+      ],
+      "animationClips": []
+    }
+  ],
+  "media": [
+    {
+      "file": "public/assets/audio/hi3d-naiwa-baoxiao.mp3",
+      "bytes": 228186
+    },
+    {
+      "file": "public/assets/audio/hi3d-naiwa-pet-laugh.wav",
+      "bytes": 79504
+    },
+    {
+      "file": "public/assets/img/hi3d-naiwa-belly-laugh.gif",
+      "bytes": 173875
+    }
+  ],
+  "sourceScenes": [
+    "assets_src/snapshots/hi3d-dream-classroom.glb",
+    "assets_src/snapshots/hi3d-dream-butterfly.glb",
+    "assets_src/snapshots/hi3d-dream-cyber.glb",
+    "assets_src/snapshots/hi3d-dream-runner.glb"
+  ],
+  "editableScene": "assets_src/blender/hi3d-three-dreams.blend"
+}

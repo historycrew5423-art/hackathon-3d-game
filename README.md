@@ -84,3 +84,19 @@ python -m http.server 8800     # 打开 http://127.0.0.1:8800/hi3d-index.html
 - 入口 `hi3d-index.html`，`assets/` 是打包后的 JS/CSS/GLB/音效（含 7 个带骨骼的 rig 模型）
 - `baihuling/` 是白虎岭模块，素材分高清 `assets/` 与移动端 `assets-m/` 两套
 - 这是构建快照，源码请改 `naiwa_dream/` 后重新 build，不要直接改这里的 hash 文件名
+
+## 美术升级交接包：`hi3d-handoff/`
+
+来源 `E:/我们的新游戏/时代感VS低质灌水的公司`（无扩展名 ZIP，112MB / 386 文件 / 解压 118.8MB），
+原样解压保留内部结构，供接手做"美术风格大提升"的人或 AI 使用：
+
+- **先读** [`hi3d-handoff/hi3d-HANDOFF-frog-dreams.md`](hi3d-handoff/hi3d-HANDOFF-frog-dreams.md)
+  —— 三重梦境全部设定、硬约束、三个关卡实现细节、模型清单、构建与验收命令、8 轮用户反馈史
+- `hi3d-handoff/source/` —— 可改的源码（vite 配置、src/scenes、public/assets/models-m、vendor 单文件 three）
+- `hi3d-handoff/dist/` —— 该版本的构建产物，入口 `dist/hi3d-index.html`（与根目录 `hi3d-frog-dreams-web/` 同一版）
+- `hi3d-handoff/scripts/` —— 模型减面/绑骨/压缩/打包与 Playwright 自动验收脚本
+- `hi3d-handoff/reports/` —— 验收日志、构建 JSON、截图证据
+- `hi3d-handoff/reference/` —— 用户给的美术参考图与场景提示词
+
+改完源码的流程：`cd hi3d-handoff/source` → `node <vite>/bin/vite.js build --config hi3d-vite.config.mjs`
+→ 把 `baihuling/` 的 JS 与素材拷进 `dist/baihuling/` → 用 `hi3d-frog-dreams-web/` 覆盖成新版。

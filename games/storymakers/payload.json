@@ -1,0 +1,31 @@
+{
+  "index.pck": {
+    "parts": [
+      "index.pck.7098f37cfe21.000.bin",
+      "index.pck.7098f37cfe21.001.bin",
+      "index.pck.7098f37cfe21.002.bin",
+      "index.pck.7098f37cfe21.003.bin",
+      "index.pck.7098f37cfe21.004.bin",
+      "index.pck.7098f37cfe21.005.bin",
+      "index.pck.7098f37cfe21.006.bin",
+      "index.pck.7098f37cfe21.007.bin",
+      "index.pck.7098f37cfe21.008.bin",
+      "index.pck.7098f37cfe21.009.bin",
+      "index.pck.7098f37cfe21.010.bin",
+      "index.pck.7098f37cfe21.011.bin",
+      "index.pck.7098f37cfe21.012.bin",
+      "index.pck.7098f37cfe21.013.bin",
+      "index.pck.7098f37cfe21.014.bin",
+      "index.pck.7098f37cfe21.015.bin"
+    ],
+    "compressedBytes": 320258922,
+    "rawBytes": 325208660
+  },
+  "index.wasm": {
+    "parts": [
+      "index.wasm.ff249a1a8019.000.bin"
+    ],
+    "compressedBytes": 10114291,
+    "rawBytes": 39514754
+  }
+}

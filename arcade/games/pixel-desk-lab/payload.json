@@ -1,0 +1,19 @@
+{
+  "index.pck": {
+    "parts": [
+      "index.pck.13f65e499eba.000.bin",
+      "index.pck.13f65e499eba.001.bin",
+      "index.pck.13f65e499eba.002.bin",
+      "index.pck.13f65e499eba.003.bin"
+    ],
+    "compressedBytes": 80970964,
+    "rawBytes": 82735900
+  },
+  "index.wasm": {
+    "parts": [
+      "index.wasm.ff249a1a8019.000.bin"
+    ],
+    "compressedBytes": 10114291,
+    "rawBytes": 39514754
+  }
+}

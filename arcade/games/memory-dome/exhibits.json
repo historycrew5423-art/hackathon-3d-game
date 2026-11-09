@@ -1,0 +1,247 @@
+{
+  "site": {
+    "zh": {
+      "intro1": "公元 3026 年，考古队在上海挖出一处遗址。",
+      "intro2": "碳测年显示：2026 年 11 月 8 日，一个星期天。",
+      "meta": "出土于 Ship it Sunday 遗址 · 2026.11.08",
+      "title": "公元 3026 · 出土文物馆",
+      "before": "2026.11.08 · 出土前",
+      "tagline": "拍下任何东西，看看一千年后的考古学家会怎么解读它。",
+      "enter": "点击进入",
+      "help": "WASD 行走 · 鼠标环顾 · 靠近文物按 F · → 走向下一件",
+      "promptReveal": "按 F 看看它出土前的样子",
+      "promptFinale": "按 F 开启这件新出土的文物",
+      "siteName": "Ship it Sunday 遗址",
+      "date": "2026 年 11 月 8 日 · 上海",
+      "promptOpen": "按 F 查看这件文物",
+      "upTitle": "上传新出土的文物",
+      "upHint": "把照片拖到这里，或点击选择",
+      "upFile": "照片已接收",
+      "upSteps": [
+        "上传照片",
+        "识别器物",
+        "生成几何",
+        "烘焙贴图",
+        "写入展厅"
+      ],
+      "upDone": "第八件已送入后殿",
+      "kiosk": "上传新文物",
+      "kioskSub": "UPLOAD A NEW FIND",
+      "promptUpload": "按 F 上传新文物"
+    },
+    "en": {
+      "intro1": "In 3026, archaeologists uncovered a site in Shanghai.",
+      "intro2": "Carbon dating: Sunday, November 8, 2026.",
+      "meta": "Excavated at the Ship it Sunday site · 2026.11.08",
+      "title": "Excavated, 3026",
+      "before": "Nov 8, 2026 · before",
+      "tagline": "Photograph anything. See how archaeologists will explain it a thousand years from now.",
+      "enter": "Click to enter",
+      "help": "WASD walk · Mouse look · F near an object · → next exhibit",
+      "promptReveal": "Press F to see it before excavation",
+      "promptFinale": "Press F to open the newest find",
+      "siteName": "The Ship it Sunday Site",
+      "date": "November 8, 2026 · Shanghai",
+      "promptOpen": "Press F to read about this object",
+      "upTitle": "Upload a new find",
+      "upHint": "Drop a photo here, or click to choose",
+      "upFile": "Photo received",
+      "upSteps": [
+        "Uploading photo",
+        "Identifying object",
+        "Building geometry",
+        "Baking textures",
+        "Writing to the hall"
+      ],
+      "upDone": "Exhibit 8 has reached the apse",
+      "kiosk": "Upload a new find",
+      "kioskSub": "SHIP IT SUNDAY SITE",
+      "promptUpload": "Press F to upload a new find"
+    }
+  },
+  "exhibits": [
+    {
+      "id": "001",
+      "file": "subway.glb",
+      "zh": {
+        "name": "祭祀面包",
+        "desc": "长约三十厘米，以纸层层包裹。出土于数百台发光方匣之间，推测为长时间仪式中的唯一补给。"
+      },
+      "en": {
+        "name": "Ritual Bread",
+        "desc": "About thirty centimetres, wrapped in layers of paper. Found among hundreds of glowing boxes; likely the only food of a very long ritual."
+      },
+      "age": 0.3,
+      "photo": "subway_b.jpg"
+    },
+    {
+      "id": "002",
+      "file": "coke.glb",
+      "zh": {
+        "name": "红色圣液罐",
+        "desc": "罐身铭文「畅爽带劲」，学界认为是一句祝祷词。遗址中几乎每张桌上都有一罐。"
+      },
+      "en": {
+        "name": "Red Vessel of Sacred Fluid",
+        "desc": "Its inscription is thought to be a prayer. One was found on almost every table at the site."
+      },
+      "age": 0.25,
+      "photo": "coke_front.jpg"
+    },
+    {
+      "id": "003",
+      "file": "mouse.glb",
+      "zh": {
+        "name": "单手权杖",
+        "desc": "磨损集中在左键。持有者生前反复做出同一个决定：再试一次。"
+      },
+      "en": {
+        "name": "One-Handed Sceptre",
+        "desc": "Worn smooth at the left button. Its owner made the same decision again and again: try once more."
+      },
+      "age": 0.12,
+      "photo": "mouse_a.jpg"
+    },
+    {
+      "id": "004",
+      "file": "neon.glb",
+      "photo": "neon_front.jpg",
+      "age": 0.3,
+      "zh": {
+        "name": "神庙铭文",
+        "desc": "遗址中唯一会自己发光的器物，悬挂于大厅最高处。铭文意为「黑客之家」；「AI」二字是神名还是咒语，学界至今仍有争议。"
+      },
+      "en": {
+        "name": "Temple Inscription",
+        "desc": "The only object at the site that gave off its own light, hung at the highest point of the hall. Scholars still argue whether “AI” was the name of a god or a spell."
+      },
+      "yaw": -0.15
+    },
+    {
+      "id": "005",
+      "file": "charm.glb",
+      "photo": "charm_front.jpg",
+      "age": 0.2,
+      "yaw": -0.15,
+      "zh": {
+        "name": "毛毡护身符",
+        "desc": "以多层毛毡叠成，铭文清晰可辨：「必要时菩萨会保佑我」。可见当时的人类在系统上线之前，仍保留着祈祷的习俗。"
+      },
+      "en": {
+        "name": "Felt Amulet",
+        "desc": "Layers of felt, inscribed: “When necessary, the Bodhisattva will protect me.” Evidently people still prayed before shipping to production."
+      }
+    },
+    {
+      "id": "006",
+      "file": "dino.glb",
+      "photo": "dino_b.jpg",
+      "age": 0.15,
+      "zh": {
+        "name": "恐龙骨骼化石",
+        "desc": "个体极小，头骨比例异常，骨骼外露于软组织表面。此件证明：恐龙直到公元 2026 年仍然存活。"
+      },
+      "en": {
+        "name": "Dinosaur Fossil",
+        "desc": "Unusually small, with an oversized skull and bones exposed on the surface. Proof that dinosaurs were still alive in 2026."
+      },
+      "yaw": 1.05
+    },
+    {
+      "id": "007",
+      "file": "right.glb",
+      "photo": "right_board.jpg",
+      "age": 0.2,
+      "yaw": -0.15,
+      "zh": {
+        "name": "神谕牌",
+        "desc": "据考证，这是当时最受信赖的神谕。无论人类说什么，神都这样回答。人们常在合影时将它高举过头顶。"
+      },
+      "en": {
+        "name": "The Oracle Board",
+        "desc": "Believed to be the most trusted oracle of the age. Whatever humans said, the god answered this way. People raised it overhead in group portraits."
+      }
+    },
+    {
+      "id": "008",
+      "file": "clawd.glb",
+      "photo": "clawd_top.jpg",
+      "age": 0.06,
+      "finale": true,
+      "zh": {
+        "name": "工匠之灵",
+        "desc": "头戴巫师帽，面覆墨镜，八足。学界认为它才是这座博物馆的真正建造者。据记载，无论人类对它说什么，它都回答：You're absolutely right。"
+      },
+      "en": {
+        "name": "Spirit of the Maker",
+        "desc": "Wizard hat, sunglasses, eight legs. Scholars believe it was the true builder of this museum. Records say that whatever humans told it, it replied: You're absolutely right."
+      },
+      "variants": [
+        {
+          "file": "clawd1.glb",
+          "photo": "clawd1.jpg",
+          "yaw": -0.25,
+          "zh": {
+            "name": "入定的术士",
+            "desc": "头戴巫师帽，双目微闭，八足着地。出土时仍保持等待的姿势。学界认为，它正在等人类回复「继续」。"
+          },
+          "en": {
+            "name": "The Meditating Wizard",
+            "desc": "Wizard hat, eyes half closed, eight legs planted. Found still waiting. Scholars believe it is waiting for a human to reply “continue”."
+          }
+        },
+        {
+          "file": "clawd2.glb",
+          "photo": "clawd2.jpg",
+          "yaw": -0.25,
+          "zh": {
+            "name": "财神之灵",
+            "desc": "红帽，顶一枚金元宝，笑容可掬。据考证，工匠们在提交作品之前都要拜它。遗址当日设有一万元奖金，或与此有关。"
+          },
+          "en": {
+            "name": "Spirit of Fortune",
+            "desc": "Red hat crowned with a gold ingot, smiling. Makers prayed to it before submitting their work. A ten-thousand-yuan prize was offered at the site that day, possibly related."
+          }
+        },
+        {
+          "file": "clawd.glb",
+          "photo": "clawd_top.jpg",
+          "zh": {
+            "name": "工匠之灵",
+            "desc": "头戴巫师帽，面覆墨镜，八足。学界认为它才是这座博物馆的真正建造者。据记载，无论人类对它说什么，它都回答：You're absolutely right。"
+          },
+          "en": {
+            "name": "Spirit of the Maker",
+            "desc": "Wizard hat, sunglasses, eight legs. Scholars believe it was the true builder of this museum. Records say that whatever humans told it, it replied: You're absolutely right."
+          }
+        },
+        {
+          "file": "clawd4.glb",
+          "photo": "clawd4.jpg",
+          "yaw": -0.25,
+          "zh": {
+            "name": "首席鉴定官",
+            "desc": "头戴礼帽，墨镜之上再加一片单片镜。职责是审查人类写下的每一行代码。出土的记录显示，它从未批准过任何一次提交。"
+          },
+          "en": {
+            "name": "The Chief Appraiser",
+            "desc": "Top hat, sunglasses, and a monocle over the sunglasses. It reviewed every line humans wrote. Surviving records show it never approved a single commit."
+          }
+        },
+        {
+          "file": "clawd5.glb",
+          "photo": "clawd5.jpg",
+          "yaw": -0.25,
+          "zh": {
+            "name": "聆听者",
+            "desc": "头戴粉色猫耳耳机，神情安详。无论人类如何发火，它都微笑着。耳机里播放的内容，至今无人破译。"
+          },
+          "en": {
+            "name": "The Listener",
+            "desc": "Pink cat-ear headphones, serene. However angry the humans became, it kept smiling. What played in those headphones has never been deciphered."
+          }
+        }
+      ]
+    }
+  ]
+}

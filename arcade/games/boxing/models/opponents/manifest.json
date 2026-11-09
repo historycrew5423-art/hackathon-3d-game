@@ -1,0 +1,170 @@
+[
+  {
+    "file": "nailong.glb",
+    "source": "hi3d-animation-v1/models/hi3d-nailong.glb",
+    "sourceBytes": 68366308,
+    "sourceSha256": "9415d4a5f4b16df094c4306fb7131cdc20c22c55f80fa2570a42814c04dc151e",
+    "bytes": 6947076,
+    "sha256": "19c732a7afaaafdbcfd621779b1d20340db56d7f41064df3df401d43cfd31cb7",
+    "before": {
+      "triangles": 2000000,
+      "vertices": 1031930
+    },
+    "after": {
+      "triangles": 100000,
+      "vertices": 62703
+    },
+    "joints": 17,
+    "animations": [
+      "Idle",
+      "LeftPunch",
+      "Recoil",
+      "RightPunch"
+    ],
+    "simplify": {
+      "targetTriangles": 100000,
+      "ratio": 0.05,
+      "error": 0.001
+    }
+  },
+  {
+    "file": "doubao.glb",
+    "source": "hi3d-animation-v1/models/hi3d-doubao.glb",
+    "sourceBytes": 68069040,
+    "sourceSha256": "00316fc30c816dd69522477e90088e7f56edbefa7bb9e382e58939606e89c303",
+    "bytes": 6621440,
+    "sha256": "25387e8c50b8ac2a160f858b56601d5d74b48e28f09196c3f7349b484cffe6cc",
+    "before": {
+      "triangles": 2000000,
+      "vertices": 1024172
+    },
+    "after": {
+      "triangles": 99998,
+      "vertices": 56199
+    },
+    "joints": 17,
+    "animations": [
+      "Idle",
+      "LeftPunch",
+      "Recoil",
+      "RightPunch"
+    ],
+    "simplify": {
+      "targetTriangles": 100000,
+      "ratio": 0.05,
+      "error": 0.001
+    }
+  },
+  {
+    "file": "niulai.glb",
+    "source": "hi3d-animation-v1/models/hi3d-niulai.glb",
+    "sourceBytes": 68089432,
+    "sourceSha256": "42efa38f2b16418b1598c0ee4856523a380c77236674d8a5acae3515d95456ac",
+    "bytes": 6945140,
+    "sha256": "e553b79c0cbbe31fd55200c994fe2cd9498fcf0a6dc5825356e1e9534e0d4049",
+    "before": {
+      "triangles": 1987580,
+      "vertices": 1028401
+    },
+    "after": {
+      "triangles": 99998,
+      "vertices": 62422
+    },
+    "joints": 17,
+    "animations": [
+      "Idle",
+      "LeftPunch",
+      "Recoil",
+      "RightPunch"
+    ],
+    "simplify": {
+      "targetTriangles": 100000,
+      "ratio": 0.0503124402539772,
+      "error": 0.001
+    }
+  },
+  {
+    "file": "fengge.glb",
+    "source": "hi3d-animation-v1/models/hi3d-fengge.glb",
+    "sourceBytes": 68151252,
+    "sourceSha256": "fdf4a6bb6903f066116de499a61fdfb77c7aaf7dfb7e32ea5907839a4bbff78d",
+    "bytes": 6998904,
+    "sha256": "e230e7ed87332e40100ee2bb0054eaa993743d60a19e846fb1d8555db1eef7cd",
+    "before": {
+      "triangles": 2000000,
+      "vertices": 1015385
+    },
+    "after": {
+      "triangles": 100000,
+      "vertices": 55122
+    },
+    "joints": 17,
+    "animations": [
+      "Idle",
+      "LeftPunch",
+      "Recoil",
+      "RightPunch"
+    ],
+    "simplify": {
+      "targetTriangles": 100000,
+      "ratio": 0.05,
+      "error": 0.001
+    }
+  },
+  {
+    "file": "cxk.glb",
+    "source": "hi3d-animation-v1/models/hi3d-cxk.glb",
+    "sourceBytes": 68635100,
+    "sourceSha256": "d9acbac6e272c14121f13cef4ab0d58ff14d7eb2984d999bcb6bd9a53497ad18",
+    "bytes": 7249532,
+    "sha256": "96c1557f492f184f313b0e46037c833f2e42e1e85902b341ce1dbd3457f4895a",
+    "before": {
+      "triangles": 2000000,
+      "vertices": 1024018
+    },
+    "after": {
+      "triangles": 99992,
+      "vertices": 57279
+    },
+    "joints": 17,
+    "animations": [
+      "Idle",
+      "LeftPunch",
+      "Recoil",
+      "RightPunch"
+    ],
+    "simplify": {
+      "targetTriangles": 100000,
+      "ratio": 0.05,
+      "error": 0.001
+    }
+  },
+  {
+    "file": "yanjunjie.glb",
+    "source": "hi3d-animation-v1/models/hi3d-yanjunjie.glb",
+    "sourceBytes": 68025384,
+    "sourceSha256": "7a60ef2df4fd3bc19ca651e627f81b2377070b27ed82f5a355116a370c0e8d8b",
+    "bytes": 6684320,
+    "sha256": "2f1925f76054f17f32390af0da1bae61739fb3a40a41c50218f2051c295e6312",
+    "before": {
+      "triangles": 2000000,
+      "vertices": 1020918
+    },
+    "after": {
+      "triangles": 100000,
+      "vertices": 55745
+    },
+    "joints": 17,
+    "animations": [
+      "Idle",
+      "LeftPunch",
+      "Recoil",
+      "RightPunch"
+    ],
+    "simplify": {
+      "targetTriangles": 100000,
+      "ratio": 0.05,
+      "error": 0.001
+    }
+  }
+]

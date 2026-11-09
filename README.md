@@ -1,5 +1,7 @@
 # 三打白骨精 · 白虎岭（three.js 实时场景）
 
+> **新增九个网页作品：[打开 3D 游乐场](https://historycrew5423-art.github.io/hackathon-3d-game/arcade/)** · 无需安装，点开即可体验。部署目录及维护说明见 [`arcade/`](arcade/README.md)，原作者与来源见 [`arcade/CREDITS.md`](arcade/CREDITS.md)。
+
 > **《奶蛙梦游记》游戏本体在 [`naiwa_dream/`](naiwa_dream/)**：怎么运行、操作说明、完成进度和下一步，见 [`naiwa_dream/交接说明.md`](naiwa_dream/交接说明.md)。下面是“三打白骨精 · 白虎岭”场景的说明（第二个西游场景，还没接进游戏）。
 
 照着参考图做的可自由漫游的 3D 场景：正前方的山体上雕着一个巨大的兽头骷髅（白骨岭），嘴里往外涌妖雾；

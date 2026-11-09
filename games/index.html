@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黑客松 3D 游戏合集 · 网页直接玩</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; background: #0d1117; color: #e6edf3; }
+  header { padding: 40px 24px 16px; max-width: 1100px; margin: 0 auto; }
+  h1 { margin: 0 0 8px; font-size: 28px; }
+  header p { margin: 0; color: #8b949e; font-size: 14px; line-height: 1.7; }
+  main { max-width: 1100px; margin: 0 auto; padding: 16px 24px 48px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+  a.card { display: block; padding: 20px; border: 1px solid #30363d; border-radius: 12px; background: #161b22; color: inherit; text-decoration: none; transition: border-color .15s, transform .15s; }
+  a.card:hover { border-color: #58a6ff; transform: translateY(-2px); }
+  .card h2 { margin: 0 0 6px; font-size: 18px; }
+  .card .desc { margin: 0 0 12px; color: #c9d1d9; font-size: 14px; line-height: 1.6; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; font-size: 12px; }
+  .tag { padding: 2px 8px; border-radius: 999px; background: #21262d; color: #8b949e; }
+  .tag.warn { background: #3b2e10; color: #e3b341; }
+  footer { max-width: 1100px; margin: 0 auto; padding: 0 24px 40px; color: #6e7681; font-size: 12px; line-height: 1.7; }
+  footer a { color: #8b949e; }
+</style>
+</head>
+<body>
+<header>
+  <h1>黑客松 3D 游戏合集</h1>
+  <p>点开卡片即可在浏览器里玩，无需安装。建议使用电脑版 Chrome / Edge。模型较大的游戏首次加载需要等待。</p>
+</header>
+<main>
+  <a class="card" href="./mechanical-planet/">
+    <h2>机械星球</h2>
+    <p class="desc">在一颗机械小星球上奔跑、变形、寻找信标。</p>
+    <div class="meta"><span class="tag">键盘 + 鼠标</span><span class="tag">约 4 MB</span></div>
+  </a>
+  <a class="card" href="./infinite-future/">
+    <h2>Infinite Future · 最后的画廊</h2>
+    <p class="desc">在两个时代之间切换，解开画廊机关。</p>
+    <div class="meta"><span class="tag">WASD + 鼠标</span><span class="tag">约 20 MB</span></div>
+  </a>
+  <a class="card" href="./hack-backfuture/">
+    <h2>光墙探索</h2>
+    <p class="desc">穿过展厅光墙，探索地下洞穴、浮岛湖与观测站。</p>
+    <div class="meta"><span class="tag">方向键</span><span class="tag">约 80 MB</span><span class="tag">需联网加载 Three.js</span></div>
+  </a>
+  <a class="card" href="./cargoplan/">
+    <h2>3D 舱策 · CargoPlan</h2>
+    <p class="desc">3D 集装箱装载优化工作台，装箱计算在浏览器本地完成。</p>
+    <div class="meta"><span class="tag">鼠标</span><span class="tag">约 10 MB</span><span class="tag warn">网页版无原文知识库检索</span></div>
+  </a>
+  <a class="card" href="./memory-dome/">
+    <h2>公元 3026 · 出土文物馆</h2>
+    <p class="desc">走进千年后的博物馆，看今天的物件如何被解读。</p>
+    <div class="meta"><span class="tag">→ / 空格 / WASD</span><span class="tag">约 20 MB</span><span class="tag warn">上传台为演示</span></div>
+  </a>
+  <a class="card" href="./boxing/">
+    <h2>暴打闫俊杰</h2>
+    <p class="desc">第一视角拳击，可用键盘、触屏或摄像头体感出拳。</p>
+    <div class="meta"><span class="tag">J / K / 空格</span><span class="tag">约 110 MB</span><span class="tag warn">需支持 WebGPU 的浏览器</span></div>
+  </a>
+  <a class="card" href="./storymakers/">
+    <h2>故事造物社</h2>
+    <p class="desc">经营一家手作展品店：生产、交易、布展，两关 24 款作品。</p>
+    <div class="meta"><span class="tag">鼠标</span><span class="tag">较大，首次加载较慢</span><span class="tag warn">AI 评估需自备豆包 Token</span></div>
+  </a>
+  <a class="card" href="./trust-price-game/">
+    <h2>信任的价格</h2>
+    <p class="desc">第一视角小镇博弈：用一枚金币决定信任还是欺诈。</p>
+    <div class="meta"><span class="tag">WASD + 鼠标</span><span class="tag">约 66 MB</span></div>
+  </a>
+  <a class="card" href="./pixel-desk-lab/">
+    <h2>Pixel Desk Lab</h2>
+    <p class="desc">复古像素风舱室书桌，可输入的终端、收音机、录音机和台灯。</p>
+    <div class="meta"><span class="tag">鼠标 + 键盘</span><span class="tag">约 95 MB</span><span class="tag">Godot 网页版</span></div>
+  </a>
+</main>
+<footer>
+  各游戏版权归原作者所有，源码：
+  <a href="https://github.com/SegawaBeer/mechanical-planet">mechanical-planet</a> ·
+  <a href="https://github.com/nineteem526/Infinite-Future">Infinite-Future</a> ·
+  <a href="https://github.com/Kiko-summer/hack-backfuture">hack-backfuture</a> ·
+  <a href="https://github.com/SelinaTu/3D">3D</a> ·
+  <a href="https://github.com/YCD-Jerry/memory-dome">memory-dome</a> ·
+  <a href="https://github.com/salathleizhang/boxing">boxing</a> ·
+  <a href="https://github.com/Sirui0124/Hi3D-261108">Hi3D-261108</a> ·
+  <a href="https://github.com/darbengen/trust-price-game">trust-price-game</a> ·
+  <a href="https://github.com/AleFoxhorn/pixel-desk-lab">pixel-desk-lab</a>
+</footer>
+</body>
+</html>
